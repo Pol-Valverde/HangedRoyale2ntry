@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "528770218893",
+    "project_id": "hangedroyale2ntry",
+    "storage_bucket": "hangedroyale2ntry.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:528770218893:android:d877582428f02d17819bc4",
+        "android_client_info": {
+          "package_name": "com.example.hangedroyale2ntry"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "528770218893-0fhs630ou4she6blkdtkrvcerah9skjq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-sVvtp4SpeldCdA1WRdL5qfqxi9dYaQo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "528770218893-0fhs630ou4she6blkdtkrvcerah9skjq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.loginButton.setOnClickListener {
             val username = binding.usernameID.text.toString()
-            val password = binding.usernameID.text.toString()
+            val password = binding.passwordID.text.toString()
 
 //            CoroutineScope(Dispatchers.Default).launch {
 //                delay(3000)
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
                     finish()
                 }.addOnFailureListener {
-                    Toast.makeText(this, "bobo", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "User or Password incorrect", Toast.LENGTH_SHORT).show()
                 }
         }
 

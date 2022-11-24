@@ -47,7 +47,8 @@ class GameActivity : AppCompatActivity() {
         println(currentWord)
 
         binding.qButton.setOnClickListener{
-        checkLetter('q')
+            checkLetter('q')
+            Toast.makeText(this, "FUNCIONA", Toast.LENGTH_SHORT).show()
         }
         binding.wButton.setOnClickListener{
             checkLetter('w')

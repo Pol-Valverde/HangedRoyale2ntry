@@ -126,7 +126,7 @@
         app:srcCompat="@drawable/main_screen_login_canvas" />
 
     <TextView
-        android:id="@+id/textLogin"
+        android:id="@+id/nextText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/grobold"

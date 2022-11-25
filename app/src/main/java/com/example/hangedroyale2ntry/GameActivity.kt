@@ -1,8 +1,10 @@
 package com.example.hangedroyale2ntry
 
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.core.view.isVisible
 import com.example.hangedroyale2ntry.databinding.ActivityGameBinding
 
 class GameActivity : AppCompatActivity() {
@@ -29,12 +31,26 @@ class GameActivity : AppCompatActivity() {
         binding.wordGame.text = currentWord
     }
 
+    fun Show() {
+        binding.optionsBackground.isVisible = true
+        binding.optionsCanvas.isVisible = true
+    }
+
+    fun Hide() {
+        binding.optionsBackground.isVisible = false
+        binding.optionsCanvas.isVisible = false
+    }
+
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
 
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.hudPauseButton.setOnClickListener {
+            Show()
+        }
 
         Toast.makeText(this, "TESTEO FUERTE", Toast.LENGTH_SHORT).show()
 
@@ -48,19 +64,23 @@ class GameActivity : AppCompatActivity() {
 
         binding.qButton.setOnClickListener{
             checkLetter('q')
-            Toast.makeText(this, "FUNCIONA", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Q", Toast.LENGTH_SHORT).show()
         }
         binding.wButton.setOnClickListener{
             checkLetter('w')
+            Toast.makeText(this, "W", Toast.LENGTH_SHORT).show()
         }
         binding.eButton.setOnClickListener{
             checkLetter('e')
+            Toast.makeText(this, "E", Toast.LENGTH_SHORT).show()
         }
         binding.rButton.setOnClickListener{
             checkLetter('r')
+            Toast.makeText(this, "R", Toast.LENGTH_SHORT).show()
         }
         binding.tButton.setOnClickListener{
             checkLetter('t')
+            Toast.makeText(this, "T", Toast.LENGTH_SHORT).show()
         }
         binding.yButton.setOnClickListener{
             checkLetter('y')
@@ -79,12 +99,15 @@ class GameActivity : AppCompatActivity() {
         }
         binding.aButton.setOnClickListener{
             checkLetter('a')
+            Toast.makeText(this, "A", Toast.LENGTH_SHORT).show()
         }
         binding.sButton.setOnClickListener{
             checkLetter('s')
+            Toast.makeText(this, "S", Toast.LENGTH_SHORT).show()
         }
         binding.dButton.setOnClickListener{
             checkLetter('d')
+            Toast.makeText(this, "D", Toast.LENGTH_SHORT).show()
         }
         binding.fButton.setOnClickListener{
             checkLetter('f')
@@ -106,9 +129,11 @@ class GameActivity : AppCompatActivity() {
         }
         binding.zButton.setOnClickListener{
             checkLetter('z')
+            Toast.makeText(this, "Z", Toast.LENGTH_SHORT).show()
         }
         binding.xButton.setOnClickListener{
             checkLetter('x')
+            Toast.makeText(this, "X", Toast.LENGTH_SHORT).show()
         }
         binding.cButton.setOnClickListener{
             checkLetter('c')

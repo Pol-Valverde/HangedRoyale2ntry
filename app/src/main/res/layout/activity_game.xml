@@ -578,4 +578,46 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.81" />
 
+    <ImageView
+        android:id="@+id/optionsBackground"
+        android:layout_width="653dp"
+        android:layout_height="993dp"
+        android:elevation="2dp"
+        android:scaleType="centerCrop"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/options_background" />
+
+    <ImageView
+        android:id="@+id/optionsCanvas"
+        android:layout_width="347dp"
+        android:layout_height="522dp"
+        android:elevation="3dp"
+        android:scaleType="fitCenter"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.511"
+        app:srcCompat="@drawable/options_canvas" />
+
+    <ImageButton
+        android:id="@+id/optionsBack"
+        android:layout_width="177dp"
+        android:layout_height="155dp"
+        android:layout_marginTop="228dp"
+        android:background="@android:color/transparent"
+        android:elevation="3dp"
+        android:scaleType="fitCenter"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/optionsCanvas"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="@+id/optionsCanvas"
+        app:layout_constraintTop_toTopOf="@+id/hudFace"
+        app:srcCompat="@drawable/options_back" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

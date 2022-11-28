@@ -1,5 +1,6 @@
 package com.example.hangedroyale2ntry
 
+import android.content.Intent
 import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -31,14 +32,44 @@ class GameActivity : AppCompatActivity() {
         binding.wordGame.text = currentWord
     }
 
-    fun Show() {
+    fun ShowOptions() {
         binding.optionsBackground.isVisible = true
         binding.optionsCanvas.isVisible = true
+        binding.optionsBackButton.isVisible = true
+        binding.optionsVolumeText.isVisible = true
+        binding.optionsLenguageCanvas.isVisible = true
+        binding.optionsLenguageText.isVisible = true
+        binding.optionsChoosenText.isVisible = true
     }
 
-    fun Hide() {
+    fun HideOptions() {
         binding.optionsBackground.isVisible = false
         binding.optionsCanvas.isVisible = false
+        binding.optionsBackButton.isVisible = false
+        binding.optionsVolumeText.isVisible = false
+        binding.optionsLenguageCanvas.isVisible = false
+        binding.optionsLenguageText.isVisible = false
+        binding.optionsChoosenText.isVisible = false
+    }
+
+    fun HidePause() {
+        binding.pauseBackground.isVisible = false
+        binding.pauseCanvas.isVisible = false
+        binding.pauseText.isVisible = false
+        binding.pauseButtonHome.isVisible = false
+        binding.pauseCanvasText.isVisible = false
+        binding.pauseButtonOptions.isVisible = false
+        binding.pauseButtonReturn.isVisible = false
+    }
+
+    fun ShowPause() {
+        binding.pauseBackground.isVisible = true
+        binding.pauseCanvas.isVisible = true
+        binding.pauseText.isVisible = true
+        binding.pauseButtonHome.isVisible = true
+        binding.pauseCanvasText.isVisible = true
+        binding.pauseButtonOptions.isVisible = true
+        binding.pauseButtonReturn.isVisible = true
     }
 
     override fun onCreate(savedInstanceState: Bundle?)
@@ -48,8 +79,27 @@ class GameActivity : AppCompatActivity() {
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.optionsBackButton.setOnClickListener {
+            HideOptions()
+        }
+
         binding.hudPauseButton.setOnClickListener {
-            Show()
+            ShowPause()
+        }
+
+        binding.pauseButtonHome.setOnClickListener {
+            val intent = Intent(this@GameActivity, MainActivity::class.java)
+            startActivity(intent)
+
+            finish()
+        }
+
+        binding.pauseButtonOptions.setOnClickListener {
+            ShowOptions()
+        }
+
+        binding.pauseButtonReturn.setOnClickListener {
+            HidePause()
         }
 
         Toast.makeText(this, "TESTEO FUERTE", Toast.LENGTH_SHORT).show()

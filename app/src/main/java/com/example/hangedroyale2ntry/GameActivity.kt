@@ -18,24 +18,10 @@ class GameActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityGameBinding
     var hangManWord: String = ""
-    var goalWord: String = "calb"
     var currentWord: String = ""
-    var token:String = ""
-    var boolLetter:Boolean = false
-    /*fun checkLetter(buttonLetter: Char)
-    {
-        var i = 0
-        for (letter in goalWord.iterator())
-        {
-            if(buttonLetter == letter)
-            {
-                currentWord.replaceRange(i, i, buttonLetter.toString())
-            }
-            i++
-        }
-        println(currentWord)
-        binding.wordGame.text = currentWord
-    }*/
+    var token: String = ""
+    var boolLetter: Boolean = false
+
     fun ShowOptions() {
         binding.optionsBackground.isVisible = true
         binding.optionsCanvas.isVisible = true
@@ -81,8 +67,6 @@ class GameActivity : AppCompatActivity() {
 
         nextWord()
 
-
-
         binding.optionsBackButton.setOnClickListener {
             HideOptions()
         }
@@ -100,485 +84,109 @@ class GameActivity : AppCompatActivity() {
         binding.pauseButtonReturn.setOnClickListener {
             HidePause()
         }
-        Toast.makeText(this, "TESTEO FUERTE", Toast.LENGTH_SHORT).show()
-        for (i in 0 .. goalWord.length - 1)
-        {
-            currentWord += "-"
-        }
-        binding.wordGame.text = currentWord
-        println(goalWord)
-        println(currentWord)
+
+        binding.wordGame.text = hangManWord
+
         binding.qButton.setOnClickListener{
-            //Toast.makeText(this, "Q", Toast.LENGTH_SHORT).show()
-            val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
-            val services = outside.create(HangManInterface::class.java)
-            services.checkLetter("Q",token).enqueue(object : Callback<GuessLetterHangMan>
-            {
-                override fun onResponse(call: Call<GuessLetterHangMan>, response: Response<GuessLetterHangMan>
-                ) {
-                    val guessLetter = response.body()
-                    token = guessLetter?.token ?: ""
-                    boolLetter = guessLetter?.correct?:false
-                }
-
-                override fun onFailure(call: Call<GuessLetterHangMan>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
-            Toast.makeText(this, boolLetter.toString(), Toast.LENGTH_SHORT).show()
-
+            checkLetterButton("Q")
+            binding.qButton.isEnabled = false
         }
         binding.wButton.setOnClickListener{
-            //Toast.makeText(this, "W", Toast.LENGTH_SHORT).show()
-            val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
-            val services = outside.create(HangManInterface::class.java)
-            services.checkLetter("W",token).enqueue(object : Callback<GuessLetterHangMan>
-            {
-                override fun onResponse(call: Call<GuessLetterHangMan>, response: Response<GuessLetterHangMan>
-                ) {
-                    val guessLetter = response.body()
-                    token = guessLetter?.token ?: ""
-                    boolLetter = guessLetter?.correct?:false
-                }
-
-                override fun onFailure(call: Call<GuessLetterHangMan>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
-            Toast.makeText(this, boolLetter.toString(), Toast.LENGTH_SHORT).show()
+            checkLetterButton("W")
+            binding.wButton.isEnabled = false
         }
         binding.eButton.setOnClickListener{
-            //Toast.makeText(this, "E", Toast.LENGTH_SHORT).show()
-            val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
-            val services = outside.create(HangManInterface::class.java)
-            services.checkLetter("E",token).enqueue(object : Callback<GuessLetterHangMan>
-            {
-                override fun onResponse(call: Call<GuessLetterHangMan>, response: Response<GuessLetterHangMan>
-                ) {
-                    val guessLetter = response.body()
-                    token = guessLetter?.token ?: ""
-                    boolLetter = guessLetter?.correct?:false
-                }
-
-                override fun onFailure(call: Call<GuessLetterHangMan>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
-            Toast.makeText(this, boolLetter.toString(), Toast.LENGTH_SHORT).show()
+            checkLetterButton("E")
+            binding.eButton.isEnabled = false
         }
         binding.rButton.setOnClickListener{
-            val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
-            val services = outside.create(HangManInterface::class.java)
-            services.checkLetter("R",token).enqueue(object : Callback<GuessLetterHangMan>
-            {
-                override fun onResponse(call: Call<GuessLetterHangMan>, response: Response<GuessLetterHangMan>
-                ) {
-                    val guessLetter = response.body()
-                    token = guessLetter?.token ?: ""
-                    boolLetter = guessLetter?.correct?:false
-                }
-
-                override fun onFailure(call: Call<GuessLetterHangMan>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
-            Toast.makeText(this, boolLetter.toString(), Toast.LENGTH_SHORT).show()
+            checkLetterButton("R")
+            binding.rButton.isEnabled = false
         }
         binding.tButton.setOnClickListener{
-            val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
-            val services = outside.create(HangManInterface::class.java)
-            services.checkLetter("T",token).enqueue(object : Callback<GuessLetterHangMan>
-            {
-                override fun onResponse(call: Call<GuessLetterHangMan>, response: Response<GuessLetterHangMan>
-                ) {
-                    val guessLetter = response.body()
-                    token = guessLetter?.token ?: ""
-                    boolLetter = guessLetter?.correct?:false
-                }
-
-                override fun onFailure(call: Call<GuessLetterHangMan>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
-            Toast.makeText(this, boolLetter.toString(), Toast.LENGTH_SHORT).show()
+            checkLetterButton("T")
+            binding.tButton.isEnabled = false
         }
         binding.yButton.setOnClickListener{
-            val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
-            val services = outside.create(HangManInterface::class.java)
-            services.checkLetter("Y",token).enqueue(object : Callback<GuessLetterHangMan>
-            {
-                override fun onResponse(call: Call<GuessLetterHangMan>, response: Response<GuessLetterHangMan>
-                ) {
-                    val guessLetter = response.body()
-                    token = guessLetter?.token ?: ""
-                    boolLetter = guessLetter?.correct?:false
-                }
-
-                override fun onFailure(call: Call<GuessLetterHangMan>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
-            Toast.makeText(this, boolLetter.toString(), Toast.LENGTH_SHORT).show()
+            checkLetterButton("Y")
+            binding.yButton.isEnabled = false
         }
         binding.uButton.setOnClickListener{
-            val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
-            val services = outside.create(HangManInterface::class.java)
-            services.checkLetter("U",token).enqueue(object : Callback<GuessLetterHangMan>
-            {
-                override fun onResponse(call: Call<GuessLetterHangMan>, response: Response<GuessLetterHangMan>
-                ) {
-                    val guessLetter = response.body()
-                    token = guessLetter?.token ?: ""
-                    boolLetter = guessLetter?.correct?:false
-                }
-
-                override fun onFailure(call: Call<GuessLetterHangMan>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
-            Toast.makeText(this, boolLetter.toString(), Toast.LENGTH_SHORT).show()
+            checkLetterButton("U")
+            binding.uButton.isEnabled = false
         }
         binding.iButton.setOnClickListener{
-            val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
-            val services = outside.create(HangManInterface::class.java)
-            services.checkLetter("I",token).enqueue(object : Callback<GuessLetterHangMan>
-            {
-                override fun onResponse(call: Call<GuessLetterHangMan>, response: Response<GuessLetterHangMan>
-                ) {
-                    val guessLetter = response.body()
-                    token = guessLetter?.token ?: ""
-                    boolLetter = guessLetter?.correct?:false
-                }
-
-                override fun onFailure(call: Call<GuessLetterHangMan>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
-            Toast.makeText(this, boolLetter.toString(), Toast.LENGTH_SHORT).show()
+            checkLetterButton("I")
+            binding.iButton.isEnabled = false
         }
         binding.oButton.setOnClickListener{
-            val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
-            val services = outside.create(HangManInterface::class.java)
-            services.checkLetter("O",token).enqueue(object : Callback<GuessLetterHangMan>
-            {
-                override fun onResponse(call: Call<GuessLetterHangMan>, response: Response<GuessLetterHangMan>
-                ) {
-                    val guessLetter = response.body()
-                    token = guessLetter?.token ?: ""
-                    boolLetter = guessLetter?.correct?:false
-                }
-
-                override fun onFailure(call: Call<GuessLetterHangMan>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
-            Toast.makeText(this, boolLetter.toString(), Toast.LENGTH_SHORT).show()
+            checkLetterButton("O")
+            binding.oButton.isEnabled = false
         }
         binding.pButton.setOnClickListener{
-            val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
-            val services = outside.create(HangManInterface::class.java)
-            services.checkLetter("P",token).enqueue(object : Callback<GuessLetterHangMan>
-            {
-                override fun onResponse(call: Call<GuessLetterHangMan>, response: Response<GuessLetterHangMan>
-                ) {
-                    val guessLetter = response.body()
-                    token = guessLetter?.token ?: ""
-                    boolLetter = guessLetter?.correct?:false
-                }
-
-                override fun onFailure(call: Call<GuessLetterHangMan>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
-            Toast.makeText(this, boolLetter.toString(), Toast.LENGTH_SHORT).show()
+            checkLetterButton("P")
+            binding.pButton.isEnabled = false
         }
         binding.aButton.setOnClickListener{
-            val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
-            val services = outside.create(HangManInterface::class.java)
-            services.checkLetter("A",token).enqueue(object : Callback<GuessLetterHangMan>
-            {
-                override fun onResponse(call: Call<GuessLetterHangMan>, response: Response<GuessLetterHangMan>
-                ) {
-                    val guessLetter = response.body()
-                    token = guessLetter?.token ?: ""
-                    boolLetter = guessLetter?.correct?:false
-                }
-
-                override fun onFailure(call: Call<GuessLetterHangMan>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
-            Toast.makeText(this, boolLetter.toString(), Toast.LENGTH_SHORT).show()
+            checkLetterButton("A")
+            binding.aButton.isEnabled = false
         }
         binding.sButton.setOnClickListener{
-            val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
-            val services = outside.create(HangManInterface::class.java)
-            services.checkLetter("S",token).enqueue(object : Callback<GuessLetterHangMan>
-            {
-                override fun onResponse(call: Call<GuessLetterHangMan>, response: Response<GuessLetterHangMan>
-                ) {
-                    val guessLetter = response.body()
-                    token = guessLetter?.token ?: ""
-                    boolLetter = guessLetter?.correct?:false
-                }
-
-                override fun onFailure(call: Call<GuessLetterHangMan>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
-            Toast.makeText(this, boolLetter.toString(), Toast.LENGTH_SHORT).show()
+            checkLetterButton("S")
+            binding.sButton.isEnabled = false
         }
-        binding.dButton.setOnClickListener{
-            val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
-            val services = outside.create(HangManInterface::class.java)
-            services.checkLetter("D",token).enqueue(object : Callback<GuessLetterHangMan>
-            {
-                override fun onResponse(call: Call<GuessLetterHangMan>, response: Response<GuessLetterHangMan>
-                ) {
-                    val guessLetter = response.body()
-                    token = guessLetter?.token ?: ""
-                    boolLetter = guessLetter?.correct?:false
-                }
-
-                override fun onFailure(call: Call<GuessLetterHangMan>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
-            Toast.makeText(this, boolLetter.toString(), Toast.LENGTH_SHORT).show()
-        }
+        binding.dButton.setOnClickListener{ checkLetterButton("D"); binding.dButton.isEnabled = false }
         binding.fButton.setOnClickListener{
-            val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
-            val services = outside.create(HangManInterface::class.java)
-            services.checkLetter("F",token).enqueue(object : Callback<GuessLetterHangMan>
-            {
-                override fun onResponse(call: Call<GuessLetterHangMan>, response: Response<GuessLetterHangMan>
-                ) {
-                    val guessLetter = response.body()
-                    token = guessLetter?.token ?: ""
-                    boolLetter = guessLetter?.correct?:false
-                }
-
-                override fun onFailure(call: Call<GuessLetterHangMan>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
-            Toast.makeText(this, boolLetter.toString(), Toast.LENGTH_SHORT).show()
+            checkLetterButton("F")
+            binding.fButton.isEnabled = false
         }
         binding.gButton.setOnClickListener{
-            val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
-            val services = outside.create(HangManInterface::class.java)
-            services.checkLetter("G",token).enqueue(object : Callback<GuessLetterHangMan>
-            {
-                override fun onResponse(call: Call<GuessLetterHangMan>, response: Response<GuessLetterHangMan>
-                ) {
-                    val guessLetter = response.body()
-                    token = guessLetter?.token ?: ""
-                    boolLetter = guessLetter?.correct?:false
-                }
-
-                override fun onFailure(call: Call<GuessLetterHangMan>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
-            Toast.makeText(this, boolLetter.toString(), Toast.LENGTH_SHORT).show()
+            checkLetterButton("G")
+            binding.gButton.isEnabled = false
         }
         binding.hButton.setOnClickListener{
-            val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
-            val services = outside.create(HangManInterface::class.java)
-            services.checkLetter("H",token).enqueue(object : Callback<GuessLetterHangMan>
-            {
-                override fun onResponse(call: Call<GuessLetterHangMan>, response: Response<GuessLetterHangMan>
-                ) {
-                    val guessLetter = response.body()
-                    token = guessLetter?.token ?: ""
-                    boolLetter = guessLetter?.correct?:false
-                }
-
-                override fun onFailure(call: Call<GuessLetterHangMan>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
-            Toast.makeText(this, boolLetter.toString(), Toast.LENGTH_SHORT).show()
+            checkLetterButton("H")
+            binding.hButton.isEnabled = false
         }
         binding.jButton.setOnClickListener{
-            val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
-            val services = outside.create(HangManInterface::class.java)
-            services.checkLetter("J",token).enqueue(object : Callback<GuessLetterHangMan>
-            {
-                override fun onResponse(call: Call<GuessLetterHangMan>, response: Response<GuessLetterHangMan>
-                ) {
-                    val guessLetter = response.body()
-                    token = guessLetter?.token ?: ""
-                    boolLetter = guessLetter?.correct?:false
-                }
-
-                override fun onFailure(call: Call<GuessLetterHangMan>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
-            Toast.makeText(this, boolLetter.toString(), Toast.LENGTH_SHORT).show()
+            checkLetterButton("J")
+            binding.jButton.isEnabled = false
         }
         binding.kButton.setOnClickListener{
-            val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
-            val services = outside.create(HangManInterface::class.java)
-            services.checkLetter("K",token).enqueue(object : Callback<GuessLetterHangMan>
-            {
-                override fun onResponse(call: Call<GuessLetterHangMan>, response: Response<GuessLetterHangMan>
-                ) {
-                    val guessLetter = response.body()
-                    token = guessLetter?.token ?: ""
-                    boolLetter = guessLetter?.correct?:false
-                }
-
-                override fun onFailure(call: Call<GuessLetterHangMan>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
-            Toast.makeText(this, boolLetter.toString(), Toast.LENGTH_SHORT).show()
+            checkLetterButton("K")
+            binding.kButton.isEnabled = false
         }
         binding.lButton.setOnClickListener{
-            val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
-            val services = outside.create(HangManInterface::class.java)
-            services.checkLetter("L",token).enqueue(object : Callback<GuessLetterHangMan>
-            {
-                override fun onResponse(call: Call<GuessLetterHangMan>, response: Response<GuessLetterHangMan>
-                ) {
-                    val guessLetter = response.body()
-                    token = guessLetter?.token ?: ""
-                    boolLetter = guessLetter?.correct?:false
-                }
-
-                override fun onFailure(call: Call<GuessLetterHangMan>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
-            Toast.makeText(this, boolLetter.toString(), Toast.LENGTH_SHORT).show()
+            checkLetterButton("L")
+            binding.lButton.isEnabled = false
         }
         binding.zButton.setOnClickListener{
-            val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
-            val services = outside.create(HangManInterface::class.java)
-            services.checkLetter("Z",token).enqueue(object : Callback<GuessLetterHangMan>
-            {
-                override fun onResponse(call: Call<GuessLetterHangMan>, response: Response<GuessLetterHangMan>
-                ) {
-                    val guessLetter = response.body()
-                    token = guessLetter?.token ?: ""
-                    boolLetter = guessLetter?.correct?:false
-                }
-
-                override fun onFailure(call: Call<GuessLetterHangMan>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
-            Toast.makeText(this, boolLetter.toString(), Toast.LENGTH_SHORT).show()
+            checkLetterButton("Z")
+            binding.zButton.isEnabled = false
         }
         binding.xButton.setOnClickListener{
-            val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
-            val services = outside.create(HangManInterface::class.java)
-            services.checkLetter("X",token).enqueue(object : Callback<GuessLetterHangMan>
-            {
-                override fun onResponse(call: Call<GuessLetterHangMan>, response: Response<GuessLetterHangMan>
-                ) {
-                    val guessLetter = response.body()
-                    token = guessLetter?.token ?: ""
-                    boolLetter = guessLetter?.correct?:false
-                }
-
-                override fun onFailure(call: Call<GuessLetterHangMan>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
-            Toast.makeText(this, boolLetter.toString(), Toast.LENGTH_SHORT).show()
+            checkLetterButton("X")
+            binding.xButton.isEnabled = false
         }
         binding.cButton.setOnClickListener{
-            val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
-            val services = outside.create(HangManInterface::class.java)
-            services.checkLetter("C",token).enqueue(object : Callback<GuessLetterHangMan>
-            {
-                override fun onResponse(call: Call<GuessLetterHangMan>, response: Response<GuessLetterHangMan>
-                ) {
-                    val guessLetter = response.body()
-                    token = guessLetter?.token ?: ""
-                    boolLetter = guessLetter?.correct?:false
-                }
-
-                override fun onFailure(call: Call<GuessLetterHangMan>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
-            Toast.makeText(this, boolLetter.toString(), Toast.LENGTH_SHORT).show()
+            checkLetterButton("C")
+            binding.cButton.isEnabled = false
         }
         binding.vButton.setOnClickListener{
-            val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
-            val services = outside.create(HangManInterface::class.java)
-            services.checkLetter("V",token).enqueue(object : Callback<GuessLetterHangMan>
-            {
-                override fun onResponse(call: Call<GuessLetterHangMan>, response: Response<GuessLetterHangMan>
-                ) {
-                    val guessLetter = response.body()
-                    token = guessLetter?.token ?: ""
-                    boolLetter = guessLetter?.correct?:false
-                }
-
-                override fun onFailure(call: Call<GuessLetterHangMan>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
-            Toast.makeText(this, boolLetter.toString(), Toast.LENGTH_SHORT).show()
+            checkLetterButton("V")
+            binding.vButton.isEnabled = false
         }
         binding.bButton.setOnClickListener{
-            val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
-            val services = outside.create(HangManInterface::class.java)
-            services.checkLetter("B",token).enqueue(object : Callback<GuessLetterHangMan>
-            {
-                override fun onResponse(call: Call<GuessLetterHangMan>, response: Response<GuessLetterHangMan>
-                ) {
-                    val guessLetter = response.body()
-                    token = guessLetter?.token ?: ""
-                    boolLetter = guessLetter?.correct?:false
-                }
-
-                override fun onFailure(call: Call<GuessLetterHangMan>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
-            Toast.makeText(this, boolLetter.toString(), Toast.LENGTH_SHORT).show()
+            checkLetterButton("B")
+            binding.bButton.isEnabled = false
         }
         binding.nButton.setOnClickListener{
-            val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
-            val services = outside.create(HangManInterface::class.java)
-            services.checkLetter("N",token).enqueue(object : Callback<GuessLetterHangMan>
-            {
-                override fun onResponse(call: Call<GuessLetterHangMan>, response: Response<GuessLetterHangMan>
-                ) {
-                    val guessLetter = response.body()
-                    token = guessLetter?.token ?: ""
-                    boolLetter = guessLetter?.correct?:false
-                }
-
-                override fun onFailure(call: Call<GuessLetterHangMan>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
-            Toast.makeText(this, boolLetter.toString(), Toast.LENGTH_SHORT).show()
+            checkLetterButton("N")
+            binding.nButton.isEnabled = false
         }
         binding.mButton.setOnClickListener{
-            val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
-            val services = outside.create(HangManInterface::class.java)
-            services.checkLetter("M",token).enqueue(object : Callback<GuessLetterHangMan>
-            {
-                override fun onResponse(call: Call<GuessLetterHangMan>, response: Response<GuessLetterHangMan>
-                ) {
-                    val guessLetter = response.body()
-                    token = guessLetter?.token ?: ""
-                    boolLetter = guessLetter?.correct?:false
-                }
-
-                override fun onFailure(call: Call<GuessLetterHangMan>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
-            Toast.makeText(this, boolLetter.toString(), Toast.LENGTH_SHORT).show()
+            checkLetterButton("M")
+            binding.mButton.isEnabled = false
         }
     }
     fun nextWord()
@@ -595,6 +203,29 @@ class GameActivity : AppCompatActivity() {
             }
             override fun onFailure(call: Call<ApiHangManGame>, t: Throwable) {
                 print("Something went wrong")
+            }
+        })
+    }
+
+    fun checkLetterButton(letter:String)
+    {
+        val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
+        val services = outside.create(HangManInterface::class.java)
+        services.checkLetter(letter,token).enqueue(object : Callback<GuessLetterHangMan>
+        {
+            override fun onResponse(call: Call<GuessLetterHangMan>, response: Response<GuessLetterHangMan>
+            ) {
+                //response.code() == 304
+
+                val guessLetter = response.body()
+                token = guessLetter?.token ?: ""
+                boolLetter = guessLetter?.correct?:false
+                currentWord = guessLetter?.hangman?:"empty"
+                binding.wordGame.text = currentWord
+            }
+
+            override fun onFailure(call: Call<GuessLetterHangMan>, t: Throwable) {
+                TODO("Not yet implemented")
             }
         })
     }

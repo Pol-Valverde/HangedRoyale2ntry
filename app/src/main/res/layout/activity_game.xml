@@ -51,6 +51,7 @@
         android:id="@+id/hudFace"
         android:layout_width="208dp"
         android:layout_height="208dp"
+        android:tint="#00D61919"
         app:layout_constraintBottom_toTopOf="@+id/hudCanvasWord"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.513"

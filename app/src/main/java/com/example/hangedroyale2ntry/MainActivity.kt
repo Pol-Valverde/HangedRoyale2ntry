@@ -19,6 +19,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         firebaseAuth = FirebaseAuth.getInstance()
 
+        binding.buttonguest.setOnClickListener{
+            val intent = Intent(this@MainActivity, GameActivity::class.java)
+            startActivity(intent)
+
+            finish()
+        }
+
         binding.registerButton.setOnClickListener {
             val intent = Intent(this@MainActivity, RegisterActivity::class.java)
             startActivity(intent)

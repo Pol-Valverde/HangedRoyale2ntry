@@ -1,10 +1,12 @@
 package com.example.hangedroyale2ntry
 
 import android.content.Intent
+import android.graphics.Color
 import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import com.example.hangedroyale2ntry.databinding.ActivityGameBinding
 import kotlinx.coroutines.delay
@@ -21,6 +23,9 @@ class GameActivity : AppCompatActivity() {
     var currentWord: String = ""
     var token: String = ""
     var boolLetter: Boolean = false
+    var lives: Int = 5
+    var faceAlpha: Int = 0
+    var finishedWord: Boolean = false
 
     fun ShowOptions() {
         binding.optionsBackground.isVisible = true
@@ -209,6 +214,15 @@ class GameActivity : AppCompatActivity() {
 
     fun checkLetterButton(letter:String)
     {
+        if (lives <= 0)
+        {
+            //Toast.makeText(this, ("Tremendo Malo"), Toast.LENGTH_SHORT).show()
+        }
+        if(finishedWord)
+        {
+            Toast.makeText(this, ("YouWin"), Toast.LENGTH_SHORT).show()
+        }
+
         val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
         val services = outside.create(HangManInterface::class.java)
         services.checkLetter(letter,token).enqueue(object : Callback<GuessLetterHangMan>
@@ -222,11 +236,32 @@ class GameActivity : AppCompatActivity() {
                 boolLetter = guessLetter?.correct?:false
                 currentWord = guessLetter?.hangman?:"empty"
                 binding.wordGame.text = currentWord
+                if(!boolLetter)
+                {
+                    lives--;
+
+                    faceAlpha += 75
+
+                    binding.hudFace.setColorFilter(Color.argb(faceAlpha, 214, 25, 25))
+                }
+                if(!checkWordFinished(currentWord))
+                {
+                    finishedWord = true
+                }
             }
 
             override fun onFailure(call: Call<GuessLetterHangMan>, t: Throwable) {
                 TODO("Not yet implemented")
             }
         })
+
+    }
+    fun checkWordFinished(word:String): Boolean
+    {
+        val result = word.any{
+            it == '_'
+        }
+
+        return result
     }
 }

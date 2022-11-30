@@ -12,6 +12,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var firebaseAuth: FirebaseAuth
 
+    companion object{
+        var username: String = ""
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -20,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         binding.buttonguest.setOnClickListener{
-            val intent = Intent(this@MainActivity, GameActivity::class.java)
+            val intent = Intent(this@MainActivity, MainMenuActivity::class.java)
             startActivity(intent)
 
             finish()
@@ -34,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.loginButton.setOnClickListener {
-            val username = binding.usernameID.text.toString()
+            username = binding.usernameID.text.toString()
             val password = binding.passwordID.text.toString()
 
 //            CoroutineScope(Dispatchers.Default).launch {
@@ -43,7 +47,7 @@ class MainActivity : AppCompatActivity() {
 
             firebaseAuth.signInWithEmailAndPassword(username, password)
                 .addOnSuccessListener {
-                    val intent = Intent(this@MainActivity, GameActivity::class.java)
+                    val intent = Intent(this@MainActivity, MainMenuActivity::class.java)
                     startActivity(intent)
 
                     finish()

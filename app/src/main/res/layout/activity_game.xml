@@ -564,7 +564,7 @@
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/hudPauseButton"
+        app:layout_constraintEnd_toStartOf="@+id/hudHouseButton"
         app:layout_constraintHorizontal_bias="0.004"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -572,7 +572,7 @@
         app:srcCompat="@drawable/hud_restart" />
 
     <ImageButton
-        android:id="@+id/hudPauseButton"
+        android:id="@+id/hudHouseButton"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginTop="16dp"
@@ -581,7 +581,7 @@
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/hud_pause" />
+        app:srcCompat="@drawable/options_home" />
 
     <ImageView
         android:id="@+id/hudCanvasWord"
@@ -607,218 +607,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.81" />
-
-    <ImageView
-        android:id="@+id/optionsBackground"
-        android:layout_width="653dp"
-        android:layout_height="993dp"
-        android:elevation="4dp"
-        android:scaleType="centerCrop"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/options_background" />
-
-    <ImageView
-        android:id="@+id/optionsCanvas"
-        android:layout_width="347dp"
-        android:layout_height="522dp"
-        android:elevation="5dp"
-        android:scaleType="fitCenter"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.511"
-        app:srcCompat="@drawable/options_canvas" />
-
-    <ImageButton
-        android:id="@+id/optionsBackButton"
-        android:layout_width="61dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="448dp"
-        android:background="@android:color/transparent"
-        android:elevation="5dp"
-        android:scaleType="fitCenter"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/optionsCanvas"
-        app:layout_constraintEnd_toEndOf="@+id/optionsCanvas"
-        app:layout_constraintStart_toStartOf="@+id/optionsCanvas"
-        app:layout_constraintTop_toTopOf="@+id/hudFace"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/options_back" />
-
-    <TextView
-        android:id="@+id/optionsLenguageText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="101dp"
-        android:layout_marginEnd="104dp"
-        android:layout_marginBottom="24dp"
-        android:elevation="5dp"
-        android:fontFamily="@font/grobold"
-        android:text="Lenguage"
-        android:textSize="30sp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/optionsLenguageCanvas"
-        app:layout_constraintEnd_toEndOf="@+id/hudCanvasWord"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/hudCanvasWord" />
-
-    <ImageView
-        android:id="@+id/optionsLenguageCanvas"
-        android:layout_width="231dp"
-        android:layout_height="71dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="137dp"
-        android:elevation="5dp"
-        android:scaleType="fitCenter"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/optionsCanvas"
-        app:layout_constraintEnd_toEndOf="@+id/hudCanvasWord"
-        app:layout_constraintStart_toStartOf="@+id/hudCanvasWord"
-        app:layout_constraintTop_toBottomOf="@+id/wordGame"
-        app:srcCompat="@drawable/options_canvas_lenguage" />
-
-    <TextView
-        android:id="@+id/optionsVolumeText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="5dp"
-        android:fontFamily="@font/grobold"
-        android:text="Volume"
-        android:textSize="30sp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/optionsLenguageText"
-        app:layout_constraintEnd_toEndOf="@+id/hudCanvasWord"
-        app:layout_constraintStart_toStartOf="@+id/hudCanvasWord"
-        app:layout_constraintTop_toTopOf="@+id/optionsCanvas"
-        app:layout_constraintVertical_bias="0.201" />
-
-    <TextView
-        android:id="@+id/optionsChoosenText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
-        android:layout_marginBottom="24dp"
-        android:elevation="5dp"
-        android:fontFamily="@font/grobold"
-        android:text="English"
-        android:textSize="20sp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/optionsLenguageCanvas"
-        app:layout_constraintEnd_toEndOf="@+id/optionsLenguageCanvas"
-        app:layout_constraintStart_toStartOf="@+id/optionsLenguageCanvas"
-        app:layout_constraintTop_toTopOf="@+id/optionsLenguageCanvas" />
-
-    <ImageView
-        android:id="@+id/pauseBackground"
-        android:layout_width="653dp"
-        android:layout_height="993dp"
-        android:elevation="2dp"
-        android:scaleType="centerCrop"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pause_background" />
-
-    <ImageView
-        android:id="@+id/pauseCanvas"
-        android:layout_width="307dp"
-        android:layout_height="176dp"
-        android:elevation="3dp"
-        android:scaleType="fitCenter"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pause_canvas" />
-
-    <ImageView
-        android:id="@+id/pauseCanvasText"
-        android:layout_width="247dp"
-        android:layout_height="97dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginEnd="60dp"
-        android:elevation="3dp"
-        android:scaleType="fitCenter"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/pauseCanvas"
-        app:layout_constraintEnd_toEndOf="@+id/pauseCanvas"
-        app:layout_constraintStart_toStartOf="@+id/pauseCanvas"
-        app:layout_constraintTop_toTopOf="@+id/pauseCanvas"
-        app:layout_constraintVertical_bias="0.494"
-        app:srcCompat="@drawable/pause_title_canvas" />
-
-    <TextView
-        android:id="@+id/pauseText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="3dp"
-        android:fontFamily="@font/grobold"
-        android:letterSpacing="0.1"
-        android:text="OPTIONS"
-        android:textSize="30sp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/pauseCanvasText"
-        app:layout_constraintEnd_toEndOf="@+id/pauseCanvasText"
-        app:layout_constraintStart_toStartOf="@+id/pauseCanvasText"
-        app:layout_constraintTop_toTopOf="@+id/pauseCanvasText" />
-
-    <ImageButton
-        android:id="@+id/pauseButtonHome"
-        android:layout_width="76dp"
-        android:layout_height="77dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
-        android:background="@android:color/transparent"
-        android:elevation="3dp"
-        android:scaleType="fitCenter"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/pauseCanvas"
-        app:layout_constraintStart_toStartOf="@+id/pauseCanvas"
-        app:layout_constraintTop_toBottomOf="@+id/pauseCanvasText"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/options_home" />
-
-    <ImageButton
-        android:id="@+id/pauseButtonOptions"
-        android:layout_width="76dp"
-        android:layout_height="77dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="15dp"
-        android:background="@android:color/transparent"
-        android:elevation="3dp"
-        android:scaleType="fitCenter"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/pauseCanvas"
-        app:layout_constraintEnd_toEndOf="@+id/pauseCanvas"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/pauseButtonHome"
-        app:layout_constraintTop_toBottomOf="@+id/pauseCanvasText"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/pause_settings" />
-
-    <ImageButton
-        android:id="@+id/pauseButtonReturn"
-        android:layout_width="48dp"
-        android:layout_height="51dp"
-        android:background="@android:color/transparent"
-        android:elevation="3dp"
-        android:scaleType="fitCenter"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/pauseButtonOptions"
-        app:layout_constraintEnd_toEndOf="@+id/pauseCanvas"
-        app:layout_constraintTop_toTopOf="@+id/pauseCanvas"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/options_back" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

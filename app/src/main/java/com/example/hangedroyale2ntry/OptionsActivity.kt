@@ -17,11 +17,12 @@ class OptionsActivity : AppCompatActivity() {
 
     private val USERS_COLLECTION: String = "users"
 
-    var soundActivated: Boolean = false
-    var notificationActivated:Boolean = false
+    var soundActivated: Boolean = true
+    var notificationActivated:Boolean = true
 
-    var userID: String? = ""
-    val userConfig: UserConfig = UserConfig("", soundActivated, notificationActivated)
+    var userEmail: String? = ""
+    var userConfig: UserConfig = UserConfig(userEmail.toString(), soundActivated, notificationActivated)
+    var users = arrayListOf<UserConfig>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,24 +34,71 @@ class OptionsActivity : AppCompatActivity() {
         usersCollection = firestore.collection(USERS_COLLECTION)
 
         firebaseAuth = FirebaseAuth.getInstance()
-        userID = firebaseAuth.currentUser?.email
+        userEmail = firebaseAuth.currentUser?.email
 
-        // Firestore logic:
-            // Button logic:
-                // UpdateFireStore()
+        // Firestore logic: <-- EL GET NO VA POL ---------------------------------------------------------------------------------------------------
+        usersCollection.get().addOnSuccessListener {
+            users = it?.documents?.mapNotNull { dbUser ->
+                dbUser.toObject(UserConfig::class.java)
+            } as ArrayList<UserConfig>
 
-        binding.soundButton.setOnClickListener{
+            val currentUser = users.find{
+                isUserCurrentUser(it)
+            }
+
+            // Sound options logic:
+            if (currentUser?.soundOn == true)
+            {
+                soundActivated = true
+
+                binding.soundSwitch.isChecked = true
+            }
+            else
+            {
+                soundActivated = false
+
+                binding.soundSwitch.isChecked = false
+            }
+
+            // Notification options logic:
+            if (currentUser?.notificationsOn == true)
+            {
+                notificationActivated = true
+
+                binding.notificationSwitch.isChecked = true
+            }
+            else
+            {
+                notificationActivated = false
+
+                binding.notificationSwitch.isChecked = false
+            }
+        }
+
+        // Button logic:
+        binding.soundSwitch.setOnClickListener{
             soundActivated = !soundActivated
 
-            UpdateFireStore()
+            updateFireStore()
+        }
+
+        binding.notificationSwitch.setOnClickListener {
+            notificationActivated = !notificationActivated
+
+            updateFireStore()
         }
     }
 
-    fun UpdateFireStore()
+    fun updateFireStore()
     {
         // Set Firestore values:
-        usersCollection.document(userID.toString()).set(userConfig)
+        userConfig = UserConfig(userEmail.toString(), soundActivated, notificationActivated)
 
-        Toast.makeText(this, ("ME CAGO EN DIOS"), Toast.LENGTH_SHORT).show()
+        usersCollection.document(userEmail.toString()).set(userConfig)
+    }
+
+    fun isUserCurrentUser(user: UserConfig): Boolean
+    {
+        return user.email == userEmail
     }
 }

@@ -31,7 +31,7 @@ class RegisterActivity : AppCompatActivity() {
                 }.addOnFailureListener{
                     firebaseAuth.createUserWithEmailAndPassword(username,password)
 
-                    val intent = Intent(this@RegisterActivity, GameActivity::class.java)
+                    val intent = Intent(this@RegisterActivity, MainMenuActivity::class.java)
                     startActivity(intent)
                     finish()
                 }

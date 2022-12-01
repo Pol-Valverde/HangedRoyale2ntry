@@ -6,10 +6,14 @@ import android.os.Bundle
 import com.example.hangedroyale2ntry.databinding.ActivityMainMenuBinding
 import com.example.hangedroyale2ntry.databinding.ActivityRegisterBinding
 
-class MainMenuActivity : AppCompatActivity() {
+class MainMenuActivity : AppCompatActivity()
+{
     private lateinit var binding: ActivityMainMenuBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
+
+    override fun onCreate(savedInstanceState: Bundle?)
+    {
         super.onCreate(savedInstanceState)
+
         binding = ActivityMainMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -18,17 +22,21 @@ class MainMenuActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
         binding.exitButton.setOnClickListener{
             System.exit(0)
         }
+
         binding.optionsButton.setOnClickListener{
             val intent = Intent(this@MainMenuActivity, OptionsActivity::class.java)
             startActivity(intent)
             finish()
         }
+
         binding.leadBoardButton.setOnClickListener {
-
+            val intent = Intent(this@MainMenuActivity, LeaderBoardActivity::class.java)
+            startActivity(intent)
+            finish()
         }
-
     }
 }

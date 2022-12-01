@@ -10,6 +10,7 @@ class LeaderBoard : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityLeaderBoardBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }

@@ -608,4 +608,28 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.81" />
 
+    <TextView
+        android:id="@+id/ChronoID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:00:00"
+        app:layout_constraintBottom_toTopOf="@+id/hudFace"
+        app:layout_constraintEnd_toStartOf="@+id/hudHouseButton"
+        app:layout_constraintStart_toEndOf="@+id/hudRetrayButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/pauseButton"
+        android:layout_width="51dp"
+        android:layout_height="49dp"
+        android:background="#00FFFFFF"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toTopOf="@+id/hudFace"
+        app:layout_constraintEnd_toStartOf="@+id/hudHouseButton"
+        app:layout_constraintHorizontal_bias="0.675"
+        app:layout_constraintStart_toEndOf="@+id/ChronoID"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.637"
+        app:srcCompat="@drawable/hud_pause" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

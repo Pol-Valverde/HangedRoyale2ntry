@@ -21,7 +21,8 @@ class OptionsActivity : AppCompatActivity() {
     var notificationActivated:Boolean = true
 
     var userEmail: String? = ""
-    var userConfig: UserConfig = UserConfig(userEmail.toString(), soundActivated, notificationActivated)
+    var puntuation:Int = 0
+    var userConfig: UserConfig = UserConfig(userEmail.toString(), soundActivated, notificationActivated,puntuation)
     var users = arrayListOf<UserConfig>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,8 +36,7 @@ class OptionsActivity : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
         userEmail = firebaseAuth.currentUser?.email
-
-        // Firestore logic: <-- EL GET NO VA POL ---------------------------------------------------------------------------------------------------
+        userConfig = UserConfig(userEmail.toString(),soundActivated,notificationActivated,puntuation)
         usersCollection.get().addOnSuccessListener {
             users = it?.documents?.mapNotNull { dbUser ->
                 dbUser.toObject(UserConfig::class.java)
@@ -92,7 +92,7 @@ class OptionsActivity : AppCompatActivity() {
     fun updateFireStore()
     {
         // Set Firestore values:
-        userConfig = UserConfig(userEmail.toString(), soundActivated, notificationActivated)
+        userConfig = UserConfig(userEmail.toString(), soundActivated, notificationActivated,puntuation)
 
         usersCollection.document(userEmail.toString()).set(userConfig)
     }

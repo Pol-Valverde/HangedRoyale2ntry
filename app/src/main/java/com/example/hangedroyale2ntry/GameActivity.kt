@@ -1,6 +1,9 @@
 package com.example.hangedroyale2ntry
 
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.graphics.Color
 import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +19,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import kotlin.math.roundToInt
 
 class GameActivity : AppCompatActivity() {
 
@@ -28,12 +32,23 @@ class GameActivity : AppCompatActivity() {
     var faceAlpha: Int = 0
     var finishedWord: Boolean = false
 
+    //counter
+    private var timerStarted = false
+    private lateinit var serviceIntent: Intent
+    private var time = 0.0
+
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
 
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
+//chrono logic
+        serviceIntent = Intent(applicationContext,TimerService::class.java)
+        registerReceiver(updateTime, IntentFilter(TimerService.TIMER_UPDATED))
+        startStopTimer()
+        binding.pauseButton.setOnClickListener { startStopTimer() }
+
 
         binding.hudHouseButton.setOnClickListener{
             val intent = Intent(this@GameActivity, MainMenuActivity::class.java)
@@ -145,6 +160,8 @@ class GameActivity : AppCompatActivity() {
             checkLetterButton("M")
             binding.mButton.isEnabled = false
         }
+
+
     }
     fun nextWord()
     {
@@ -216,4 +233,51 @@ class GameActivity : AppCompatActivity() {
 
         return result
     }
+
+
+    private val updateTime:BroadcastReceiver = object : BroadcastReceiver()
+    {
+        override fun onReceive(context: Context, intent: Intent) {
+            time = intent.getDoubleExtra(TimerService.TIME_EXTRA,0.0)
+            binding.ChronoID.text = getTimeStringFromDouble(time)
+        }
+    }
+
+    private fun getTimeStringFromDouble(time:Double):String
+    {
+        val resultInt = time.roundToInt()
+        val hours = resultInt % 86400 / 3600
+        val minutes = resultInt % 86400 % 3600 / 60
+        val seconds = resultInt % 86400 % 3600 % 60
+        return makeTimeString(hours,minutes,seconds)
+    }
+    private fun makeTimeString(hour: Int, min:Int,sec:Int): String = String.format("%02d:%02d:%02d", hour, min, sec)
+
+    private fun startStopTimer()
+    {
+        if(timerStarted)
+            stopTimer()
+        else
+            startTimer()
+    }
+
+    private fun startTimer() {
+        serviceIntent.putExtra(TimerService.TIME_EXTRA,time)
+        startService(serviceIntent)
+        timerStarted = true
+    }
+
+    private fun stopTimer() {
+
+        stopService(serviceIntent)
+        timerStarted = false
+    }
+
+    private fun resetTimer()
+    {
+        stopTimer()
+        time = 0.0
+        binding.ChronoID.text = getTimeStringFromDouble(time)
+    }
+
 }

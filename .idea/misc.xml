@@ -4,9 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/VictorRomeroCuesta/Desktop/Repos/HangedRoyale2ntry/app/src/main/res/layout/activity_game.xml" value="0.2" />
-        <entry key="..\:/Users/pol.valverde/Desktop/HangMan/HangedRoyale2ntry/app/src/main/res/layout/activity_game.xml" value="0.2" />
-        <entry key="..\:/Users/pol.valverde/Desktop/HangMan/HangedRoyale2ntry/app/src/main/res/layout/activity_main.xml" value="0.13269927536231885" />
-        <entry key="..\:/Users/pol.valverde/Desktop/HangMan/HangedRoyale2ntry/app/src/main/res/layout/activity_main_menu.xml" value="0.18541666666666667" />
+        <entry key="..\:/Users/pol.valverde/Desktop/HangMan/HangedRoyale2ntry/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1945" />
+        <entry key="..\:/Users/pol.valverde/Desktop/HangMan/HangedRoyale2ntry/app/src/main/res/layout/activity_game.xml" value="0.33" />
+        <entry key="..\:/Users/pol.valverde/Desktop/HangMan/HangedRoyale2ntry/app/src/main/res/layout/activity_leader_board.xml" value="0.3625" />
+        <entry key="..\:/Users/pol.valverde/Desktop/HangMan/HangedRoyale2ntry/app/src/main/res/layout/activity_leader_board_recycle_view.xml" value="0.3625" />
+        <entry key="..\:/Users/pol.valverde/Desktop/HangMan/HangedRoyale2ntry/app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="..\:/Users/pol.valverde/Desktop/HangMan/HangedRoyale2ntry/app/src/main/res/layout/activity_main_menu.xml" value="0.33" />
+        <entry key="..\:/Users/pol.valverde/Desktop/HangMan/HangedRoyale2ntry/app/src/main/res/layout/activity_options.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/pol.valverde/Desktop/HangMan/HangedRoyale2ntry/app/src/main/res/layout/activity_splash_screen.xml" value="0.3625" />
+        <entry key="..\:/Users/pol.valverde/Desktop/HangMan/HangedRoyale2ntry/app/src/main/res/layout/item_leaderboard.xml" value="0.3625" />
       </map>
     </option>
   </component>

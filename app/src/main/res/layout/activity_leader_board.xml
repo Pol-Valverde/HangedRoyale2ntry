@@ -7,6 +7,49 @@
     android:background="@drawable/score_background"
     tools:context=".LeaderBoardActivity">
 
+    <ImageView
+        android:id="@+id/scoreSphere1"
+        android:layout_width="287dp"
+        android:layout_height="290dp"
+        android:layout_marginEnd="-120dp"
+        android:layout_marginBottom="-100dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/score_sphere2" />
+
+    <ImageView
+        android:id="@+id/scoreSphere2"
+        android:layout_width="369dp"
+        android:layout_height="369dp"
+        android:layout_marginStart="-180dp"
+        android:layout_marginTop="-150dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.13"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/score_sphere1" />
+
+    <ImageView
+        android:id="@+id/scoreSphere3"
+        android:layout_width="318dp"
+        android:layout_height="313dp"
+        android:layout_marginTop="-180dp"
+        android:layout_marginEnd="-150dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.04"
+        app:srcCompat="@drawable/score_sphere4" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/leaderBoardRecycler"
         android:layout_width="410dp"
@@ -19,7 +62,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scoreLeaderBoardID" />
+        app:layout_constraintTop_toBottomOf="@+id/scoreLeaderBoardID">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
     <TextView
         android:id="@+id/scoreLeaderBoardID"
@@ -50,4 +95,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.051"
         app:srcCompat="@drawable/score_face" />
+
+    <ImageView
+        android:id="@+id/scoreHomeButton"
+        android:layout_width="68dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.68"
+        app:layout_constraintStart_toEndOf="@+id/scoreFace"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/score_home" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

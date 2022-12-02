@@ -1,5 +1,6 @@
 package com.example.hangedroyale2ntry
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -51,13 +52,13 @@ class OptionsActivity : AppCompatActivity() {
             {
                 soundActivated = true
 
-                binding.soundSwitch.isChecked = true
+                binding.optionsSoundSwitch.isChecked = true
             }
             else
             {
                 soundActivated = false
 
-                binding.soundSwitch.isChecked = false
+                binding.optionsSoundSwitch.isChecked = false
             }
 
             // Notification options logic:
@@ -65,27 +66,34 @@ class OptionsActivity : AppCompatActivity() {
             {
                 notificationActivated = true
 
-                binding.notificationSwitch.isChecked = true
+                binding.optionsNotificationSwitch.isChecked = true
             }
             else
             {
                 notificationActivated = false
 
-                binding.notificationSwitch.isChecked = false
+                binding.optionsNotificationSwitch.isChecked = false
             }
         }
 
         // Button logic:
-        binding.soundSwitch.setOnClickListener{
+        binding.optionsSoundSwitch.setOnClickListener{
             soundActivated = !soundActivated
 
             updateFireStore()
         }
 
-        binding.notificationSwitch.setOnClickListener {
+        binding.optionsNotificationSwitch.setOnClickListener {
             notificationActivated = !notificationActivated
 
             updateFireStore()
+        }
+
+        binding.optionsHomeButton.setOnClickListener {
+            val intent = Intent(this@OptionsActivity, MainMenuActivity::class.java)
+            startActivity(intent)
+
+            finish()
         }
     }
 

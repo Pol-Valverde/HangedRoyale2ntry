@@ -1,5 +1,6 @@
 package com.example.hangedroyale2ntry
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.hangedroyale2ntry.databinding.ActivityLeaderBoardBinding
@@ -21,6 +22,13 @@ class LeaderBoardActivity : AppCompatActivity()
         binding.leaderBoardRecycler.adapter = adapter
 
         loadLeaderBoard()
+
+        binding.scoreHomeButton.setOnClickListener {
+            val intent = Intent(this@LeaderBoardActivity, MainMenuActivity::class.java)
+            startActivity(intent)
+
+            finish()
+        }
     }
 
     private fun loadLeaderBoard()

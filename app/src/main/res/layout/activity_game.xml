@@ -610,9 +610,12 @@
 
     <TextView
         android:id="@+id/ChronoID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="91dp"
+        android:layout_height="32dp"
+        android:background="@drawable/score_name_canvas"
+        android:fontFamily="@font/grobold"
         android:text="00:00:00"
+        android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/hudFace"
         app:layout_constraintEnd_toStartOf="@+id/hudHouseButton"
         app:layout_constraintHorizontal_bias="0.437"

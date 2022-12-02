@@ -17,23 +17,23 @@ class MainMenuActivity : AppCompatActivity()
         binding = ActivityMainMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.playButton.setOnClickListener{
+        binding.menuPlayButton.setOnClickListener{
             val intent = Intent(this@MainMenuActivity, GameActivity::class.java)
             startActivity(intent)
             finish()
         }
 
-        binding.exitButton.setOnClickListener{
+        binding.menuExitButton.setOnClickListener{
             System.exit(0)
         }
 
-        binding.optionsButton.setOnClickListener{
+        binding.menuOptionsButton.setOnClickListener{
             val intent = Intent(this@MainMenuActivity, OptionsActivity::class.java)
             startActivity(intent)
             finish()
         }
 
-        binding.leadBoardButton.setOnClickListener {
+        binding.menuLeadBoardButton.setOnClickListener {
             val intent = Intent(this@MainMenuActivity, LeaderBoardActivity::class.java)
             startActivity(intent)
             finish()

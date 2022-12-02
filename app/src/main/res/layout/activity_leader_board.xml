@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/score_background"
     tools:context=".LeaderBoardActivity">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -11,27 +12,34 @@
         android:layout_width="410dp"
         android:layout_height="478dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/score_background"
+
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LeaderBoardID" />
+        app:layout_constraintTop_toBottomOf="@+id/scoreLeaderBoardID" />
 
     <TextView
-        android:id="@+id/LeaderBoardID"
-        android:layout_width="91dp"
-        android:layout_height="21dp"
+        android:id="@+id/scoreLeaderBoardID"
+        android:layout_width="201dp"
+        android:layout_height="54dp"
+        android:background="@drawable/score_name_canvas"
+        android:fontFamily="@font/grobold"
+        android:gravity="center"
         android:text="LeaderBoard"
+        android:textColor="#FFD2D2"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.068" />
+        app:layout_constraintTop_toBottomOf="@+id/scoreFace"
+        app:layout_constraintVertical_bias="0.042" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/scoreFace"
         android:layout_width="176dp"
         android:layout_height="146dp"
         android:scaleType="centerInside"
@@ -41,5 +49,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.051"
-        app:srcCompat="@drawable/hud_face" />
+        app:srcCompat="@drawable/score_face" />
 </androidx.constraintlayout.widget.ConstraintLayout>

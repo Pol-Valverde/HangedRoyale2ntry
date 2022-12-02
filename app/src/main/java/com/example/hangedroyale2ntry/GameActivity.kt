@@ -56,6 +56,11 @@ class GameActivity : AppCompatActivity() {
             finish()
         }
 
+        binding.youWinHomeButton.setOnClickListener {
+            val intent = Intent(this@GameActivity, MainMenuActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         binding.wordGame.text = hangManWord
 
@@ -181,15 +186,33 @@ class GameActivity : AppCompatActivity() {
         })
     }
 
+    fun ShowWin() {
+        binding.youWinCanvas.isVisible = true
+        binding.youWinFace.isVisible = true
+        binding.youWinHomeButton.isVisible = true
+        binding.youWinText.isVisible = true
+        binding.youWinNextButton.isVisible = true
+        binding.youWinReloadButton.isVisible = true
+        binding.youWinScoreCanvas.isVisible = true
+        binding.youWinScoreText.isVisible = true
+    }
+
+    fun ShowLose() {
+
+    }
+
     fun checkLetterButton(letter:String)
     {
         if (lives <= 0)
         {
             //Toast.makeText(this, ("Tremendo Malo"), Toast.LENGTH_SHORT).show()
+            ShowLose()
         }
         if(finishedWord)
         {
             Toast.makeText(this, ("YouWin"), Toast.LENGTH_SHORT).show()
+
+            ShowWin()
         }
 
         val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()

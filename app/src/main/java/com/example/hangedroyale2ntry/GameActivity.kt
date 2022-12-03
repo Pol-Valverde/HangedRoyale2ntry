@@ -43,14 +43,20 @@ class GameActivity : AppCompatActivity() {
 
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//chrono logic
+        //chrono logic
         serviceIntent = Intent(applicationContext,TimerService::class.java)
         registerReceiver(updateTime, IntentFilter(TimerService.TIMER_UPDATED))
         startStopTimer()
         binding.pauseButton.setOnClickListener { startStopTimer() }
 
-
+        binding.hudRetryButton.setOnClickListener {
+            resetTimer()
+            val intent = Intent(this@GameActivity, GameActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
         binding.hudHouseButton.setOnClickListener{
+            resetTimer()
             val intent = Intent(this@GameActivity, MainMenuActivity::class.java)
             startActivity(intent)
             finish()
@@ -186,7 +192,8 @@ class GameActivity : AppCompatActivity() {
         })
     }
 
-    fun ShowWin() {
+    fun ShowWin()
+    {
         binding.youWinCanvas.isVisible = true
         binding.youWinFace.isVisible = true
         binding.youWinHomeButton.isVisible = true

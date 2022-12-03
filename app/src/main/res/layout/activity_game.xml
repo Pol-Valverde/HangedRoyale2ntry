@@ -557,7 +557,7 @@
         app:layout_constraintVertical_bias="0.072" />
 
     <ImageButton
-        android:id="@+id/hudRetrayButton"
+        android:id="@+id/hudRetryButton"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginStart="16dp"
@@ -619,7 +619,7 @@
         app:layout_constraintBottom_toTopOf="@+id/hudFace"
         app:layout_constraintEnd_toStartOf="@+id/hudHouseButton"
         app:layout_constraintHorizontal_bias="0.437"
-        app:layout_constraintStart_toEndOf="@+id/hudRetrayButton"
+        app:layout_constraintStart_toEndOf="@+id/hudRetryButton"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.42" />
 

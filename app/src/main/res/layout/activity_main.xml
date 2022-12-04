@@ -112,6 +112,7 @@
         android:hint="Password"
         android:textColor="#736935"
         android:fontFamily="@font/grobold"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/usernameID" />

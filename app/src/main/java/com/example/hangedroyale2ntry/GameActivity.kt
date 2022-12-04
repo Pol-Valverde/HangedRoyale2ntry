@@ -62,8 +62,39 @@ class GameActivity : AppCompatActivity() {
             finish()
         }
 
+        binding.youWinReloadButton.setOnClickListener {
+            val intent = Intent(this@GameActivity, GameActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         binding.youWinHomeButton.setOnClickListener {
             val intent = Intent(this@GameActivity, MainMenuActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        binding.youWinLeaderboardButton.setOnClickListener {
+            val intent = Intent(this@GameActivity, LeaderBoardActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        binding.youLoseReloadButton.setOnClickListener {
+            val intent = Intent(this@GameActivity, GameActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        binding.youLoseHomeButton.setOnClickListener {
+            resetTimer()
+            val intent = Intent(this@GameActivity, MainMenuActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        binding.youLoseLeaderboardButton.setOnClickListener {
+            val intent = Intent(this@GameActivity, LeaderBoardActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -194,18 +225,31 @@ class GameActivity : AppCompatActivity() {
 
     fun ShowWin()
     {
-        binding.youWinCanvas.isVisible = true
+        binding.youWinBackground.isVisible = true
+        binding.youWinSphere1.isVisible = true
+        binding.youWinSphere2.isVisible = true
+        binding.youWinSphere3.isVisible = true
+        binding.youWinScoreCanvas.isVisible = true
         binding.youWinFace.isVisible = true
         binding.youWinHomeButton.isVisible = true
         binding.youWinText.isVisible = true
-        binding.youWinNextButton.isVisible = true
+        binding.youWinLeaderboardButton.isVisible = true
         binding.youWinReloadButton.isVisible = true
-        binding.youWinScoreCanvas.isVisible = true
         binding.youWinScoreText.isVisible = true
     }
 
     fun ShowLose() {
-
+        binding.youLoseBackground.isVisible = true
+        binding.youLoseSphere1.isVisible = true
+        binding.youLoseSphere2.isVisible = true
+        binding.youLoseSphere3.isVisible = true
+        binding.youLoseScoreCanvas.isVisible = true
+        binding.youLoseFace.isVisible = true
+        binding.youLoseHomeButton.isVisible = true
+        binding.youLoseText.isVisible = true
+        binding.youLoseLeaderboardButton.isVisible = true
+        binding.youLoseReloadButton.isVisible = true
+        binding.youLoseScoreText.isVisible = true
     }
 
     fun checkLetterButton(letter:String)
@@ -217,8 +261,7 @@ class GameActivity : AppCompatActivity() {
         }
         if(finishedWord)
         {
-            Toast.makeText(this, ("YouWin"), Toast.LENGTH_SHORT).show()
-
+            //Toast.makeText(this, ("YouWin"), Toast.LENGTH_SHORT).show()
             ShowWin()
         }
 

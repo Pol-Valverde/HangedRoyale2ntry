@@ -91,6 +91,7 @@ class OptionsActivity : AppCompatActivity() {
             val editor = sharedPreference.edit()
             editor.remove("username")
             editor.remove("password")
+            editor.remove("keepLogIn")
             editor.clear().apply()
 
             val intent = Intent(this@OptionsActivity, MainActivity::class.java)

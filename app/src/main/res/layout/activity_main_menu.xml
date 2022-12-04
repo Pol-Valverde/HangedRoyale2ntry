@@ -8,6 +8,48 @@
     tools:context=".MainMenuActivity">
 
     <ImageView
+        android:id="@+id/menuSphere1"
+        android:layout_width="304dp"
+        android:layout_height="276dp"
+        android:layout_marginStart="-100dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.026"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.265"
+        app:srcCompat="@drawable/main_screen_sphere1" />
+
+    <ImageView
+        android:id="@+id/menuSphere2"
+        android:layout_width="503dp"
+        android:layout_height="501dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginBottom="-250dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/main_screen_sphere2" />
+
+    <ImageView
+        android:id="@+id/menuSphere3"
+        android:layout_width="373dp"
+        android:layout_height="356dp"
+        android:layout_marginTop="-150dp"
+        android:layout_marginEnd="-150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/main_screen_sphere3" />
+
+    <ImageView
         android:id="@+id/menuFace"
         android:layout_width="262dp"
         android:layout_height="368dp"
@@ -46,7 +88,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.935"
-        app:srcCompat="@drawable/options_home" />
+        app:srcCompat="@drawable/main_screen_exit_button" />
 
     <ImageButton
         android:id="@+id/menuLeadBoardButton"
@@ -60,7 +102,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.707"
-        app:srcCompat="@drawable/options_back" />
+        app:srcCompat="@drawable/main_screen_leaderboard_button" />
 
     <ImageButton
         android:id="@+id/menuPlayButton"
@@ -76,4 +118,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.644"
         app:srcCompat="@drawable/options_back" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -637,9 +637,9 @@
         app:srcCompat="@drawable/hud_pause" />
 
     <ImageView
-        android:id="@+id/youWinCanvas"
-        android:layout_width="553dp"
-        android:layout_height="849dp"
+        android:id="@+id/youWinBackground"
+        android:layout_width="600dp"
+        android:layout_height="1000dp"
         android:elevation="2sp"
         android:scaleType="centerCrop"
         android:visibility="invisible"
@@ -648,6 +648,51 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/you_win_background" />
+
+    <ImageView
+        android:id="@+id/youWinSphere1"
+        android:layout_width="454dp"
+        android:layout_height="441dp"
+        android:layout_marginTop="-200dp"
+        android:layout_marginEnd="-25dp"
+        android:elevation="2sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/you_win_sphere1" />
+
+    <ImageView
+        android:id="@+id/youWinSphere2"
+        android:layout_width="750dp"
+        android:layout_height="750dp"
+        android:layout_marginBottom="-300dp"
+        android:elevation="2sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/you_win_sphere2" />
+
+    <ImageView
+        android:id="@+id/youWinSphere3"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="-150dp"
+        android:layout_marginTop="-150dp"
+        android:elevation="2sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/you_win_sphere3" />
+
 
     <TextView
         android:id="@+id/youWinScoreCanvas"
@@ -713,10 +758,10 @@
         app:srcCompat="@drawable/you_win_face" />
 
     <ImageButton
-        android:id="@+id/youWinReloadButton"
+        android:id="@+id/youWinLeaderboardButton"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="23dp"
         android:layout_marginTop="274dp"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="22dp"
@@ -726,11 +771,10 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/youWinScoreCanvas"
         app:layout_constraintEnd_toStartOf="@+id/youWinHomeButton"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/youWinScoreCanvas"
         app:layout_constraintTop_toTopOf="@+id/youWinScoreCanvas"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/you_win_reload" />
+        app:srcCompat="@drawable/you_win_leaderboard_button" />
 
     <ImageButton
         android:id="@+id/youWinHomeButton"
@@ -738,25 +782,26 @@
         android:layout_height="80dp"
         android:layout_marginStart="115dp"
         android:layout_marginTop="274dp"
-        android:layout_marginEnd="12dp"
         android:layout_marginBottom="22dp"
         android:background="@android:color/transparent"
         android:elevation="3sp"
         android:scaleType="fitCenter"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/youWinScoreCanvas"
-        app:layout_constraintEnd_toStartOf="@+id/youWinNextButton"
+        app:layout_constraintEnd_toStartOf="@+id/youWinReloadButton"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/youWinScoreCanvas"
         app:layout_constraintTop_toTopOf="@+id/youWinScoreCanvas"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/you_win_home" />
 
     <ImageButton
-        android:id="@+id/youWinNextButton"
+        android:id="@+id/youWinReloadButton"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="207dp"
+        android:layout_marginStart="208dp"
         android:layout_marginTop="274dp"
-        android:layout_marginEnd="28dp"
+        android:layout_marginEnd="27dp"
         android:layout_marginBottom="22dp"
         android:background="@android:color/transparent"
         android:elevation="3sp"
@@ -766,6 +811,185 @@
         app:layout_constraintEnd_toEndOf="@+id/youWinScoreCanvas"
         app:layout_constraintStart_toStartOf="@+id/youWinScoreCanvas"
         app:layout_constraintTop_toTopOf="@+id/youWinScoreCanvas"
-        app:srcCompat="@drawable/you_win_next" />
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/you_win_reload" />
+
+    <ImageView
+        android:id="@+id/youLoseBackground"
+        android:layout_width="600dp"
+        android:layout_height="1000dp"
+        android:elevation="2sp"
+        android:scaleType="centerCrop"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/you_lose_background" />
+
+    <ImageView
+        android:id="@+id/youLoseSphere1"
+        android:layout_width="750dp"
+        android:layout_height="750dp"
+        android:layout_marginBottom="-300dp"
+        android:elevation="2sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/you_lose_sphere1" />
+
+    <ImageView
+        android:id="@+id/youLoseSphere2"
+        android:layout_width="454dp"
+        android:layout_height="441dp"
+        android:layout_marginTop="-200dp"
+        android:layout_marginEnd="-25dp"
+        android:elevation="2sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/you_lose_sphere2" />
+
+    <ImageView
+        android:id="@+id/youLoseSphere3"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="-150dp"
+        android:layout_marginTop="-150dp"
+        android:elevation="2sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/you_lose_sphere3" />
+
+    <TextView
+        android:id="@+id/youLoseScoreCanvas"
+        android:layout_width="315dp"
+        android:layout_height="376dp"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/you_lose_score_canvas"
+        android:elevation="3sp"
+        android:fontFamily="@font/grobold"
+        android:gravity="center_horizontal"
+        android:padding="80dp"
+        android:text="Score:"
+        android:textColor="#FFD2D2"
+        android:textSize="40sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/youLoseScoreText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:elevation="3sp"
+        android:fontFamily="@font/grobold"
+        android:text="48176"
+        android:textSize="50sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/youLoseScoreCanvas"
+        app:layout_constraintEnd_toEndOf="@+id/youLoseScoreCanvas"
+        app:layout_constraintStart_toStartOf="@+id/youLoseScoreCanvas"
+        app:layout_constraintTop_toTopOf="@+id/youLoseScoreCanvas" />
+
+    <TextView
+        android:id="@+id/youLoseText"
+        android:layout_width="233dp"
+        android:layout_height="84dp"
+        android:layout_marginBottom="-30dp"
+        android:background="@drawable/you_lose_lose_canvas"
+        android:elevation="3sp"
+        android:fontFamily="@font/grobold"
+        android:gravity="center"
+        android:text="You Lose!"
+        android:textColor="#FFD2D2"
+        android:textSize="35sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/youWinScoreCanvas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/youLoseFace"
+        android:layout_width="231dp"
+        android:layout_height="181dp"
+        android:elevation="3sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/youLoseText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.771"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/you_lose_face" />
+
+    <ImageView
+        android:id="@+id/youLoseLeaderboardButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="274dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="22dp"
+        android:background="@android:color/transparent"
+        android:elevation="3sp"
+        android:scaleType="fitCenter"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/youLoseScoreCanvas"
+        app:layout_constraintEnd_toStartOf="@+id/youLoseHomeButton"
+        app:layout_constraintStart_toStartOf="@+id/youLoseScoreCanvas"
+        app:layout_constraintTop_toTopOf="@+id/youLoseScoreCanvas"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/main_screen_leaderboard_button" />
+
+    <ImageButton
+        android:id="@+id/youLoseHomeButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="274dp"
+        android:layout_marginBottom="22dp"
+        android:background="@android:color/transparent"
+        android:elevation="3sp"
+        android:scaleType="fitCenter"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/youLoseScoreCanvas"
+        app:layout_constraintEnd_toStartOf="@+id/youLoseReloadButton"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/youLoseScoreCanvas"
+        app:layout_constraintTop_toTopOf="@+id/youLoseScoreCanvas"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/you_lose_home" />
+
+    <ImageButton
+        android:id="@+id/youLoseReloadButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="274dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="22dp"
+        android:background="@android:color/transparent"
+        android:elevation="3sp"
+        android:scaleType="fitCenter"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/youLoseScoreCanvas"
+        app:layout_constraintEnd_toEndOf="@+id/youLoseScoreCanvas"
+        app:layout_constraintStart_toStartOf="@+id/youLoseScoreCanvas"
+        app:layout_constraintTop_toTopOf="@+id/youLoseScoreCanvas"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/you_lose_retry" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
     var password:String =  "empty"
     var usernameID:String = "empty"
-
+    var keepLoggedIn: Boolean = false
 
     companion object{
         var username: String = "empty"
@@ -31,11 +31,21 @@ class MainActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         val sharedPreference = PreferenceManager.getDefaultSharedPreferences(this)
         val editor = sharedPreference.edit()
-        var userID  = sharedPreference.getString("username", null)
-        var _password = sharedPreference.getString("password", null)
+        var userID  = sharedPreference.getString("username", username)
+        var _password = sharedPreference.getString("password", password)
+
+        keepLoggedIn = sharedPreference.getBoolean("KeepLogIn", keepLoggedIn)
+
+        binding.switchLogIn.isChecked = keepLoggedIn
 
         Toast.makeText(this, userID, Toast.LENGTH_SHORT).show()
         Login(userID.toString(),_password.toString(),editor)
+
+        binding.switchLogIn.setOnClickListener{
+            changeKeepLogIn()
+            editor.putBoolean("KeepLogIn", keepLoggedIn)
+            editor.apply()
+        }
 
         binding.buttonguest.setOnClickListener{
             val intent = Intent(this@MainActivity, MainMenuActivity::class.java)
@@ -68,21 +78,24 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun changeKeepLogIn() {
+        keepLoggedIn = binding.switchLogIn.isChecked
+    }
+
     fun Login(user:String,pass:String,edit:SharedPreferences.Editor)
     {
         firebaseAuth.signInWithEmailAndPassword(user, pass)
             .addOnSuccessListener {
-
-                edit.putString("username",user)
-                edit.putString("password", pass)
+                if (keepLoggedIn) {
+                    edit.putString("username", user)
+                    edit.putString("password", pass)
+                }
                 Toast.makeText(this, pass, Toast.LENGTH_SHORT).show()
                 edit.apply()
                 val intent = Intent(this@MainActivity, MainMenuActivity::class.java)
                 startActivity(intent)
-
                 finish()
             }.addOnFailureListener {
-
-            }
+        }
     }
 }

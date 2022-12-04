@@ -29,16 +29,15 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         firebaseAuth = FirebaseAuth.getInstance()
+
         val sharedPreference = PreferenceManager.getDefaultSharedPreferences(this)
         val editor = sharedPreference.edit()
         var userID  = sharedPreference.getString("username", username)
         var _password = sharedPreference.getString("password", password)
 
         keepLoggedIn = sharedPreference.getBoolean("KeepLogIn", keepLoggedIn)
-
         binding.switchLogIn.isChecked = keepLoggedIn
 
-        Toast.makeText(this, userID, Toast.LENGTH_SHORT).show()
         Login(userID.toString(),_password.toString(),editor)
 
         binding.switchLogIn.setOnClickListener{
@@ -90,7 +89,6 @@ class MainActivity : AppCompatActivity() {
                     edit.putString("username", user)
                     edit.putString("password", pass)
                 }
-                Toast.makeText(this, pass, Toast.LENGTH_SHORT).show()
                 edit.apply()
                 val intent = Intent(this@MainActivity, MainMenuActivity::class.java)
                 startActivity(intent)

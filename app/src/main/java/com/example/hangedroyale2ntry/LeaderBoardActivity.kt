@@ -17,8 +17,6 @@ class LeaderBoardActivity : AppCompatActivity()
         binding = ActivityLeaderBoardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // supportActionBar?.hide() // Aquesta funció serveix per ocultar la barra de dalt on surt al títol de cada Activity
-
         binding.leaderBoardRecycler.adapter = adapter
 
         loadLeaderBoard()

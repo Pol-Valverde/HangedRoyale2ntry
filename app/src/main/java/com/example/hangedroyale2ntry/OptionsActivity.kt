@@ -23,12 +23,10 @@ class OptionsActivity : AppCompatActivity() {
 
     var soundActivated: Boolean = true
     var notificationActivated:Boolean = true
-
     var userEmail: String? = ""
     var puntuation:Int = 0
     var userConfig: UserConfig = UserConfig(userEmail.toString(), soundActivated, notificationActivated,puntuation)
     var users = arrayListOf<UserConfig>()
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -24,6 +24,7 @@ import kotlin.math.roundToInt
 class GameActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityGameBinding
+
     var hangManWord: String = ""
     var currentWord: String = ""
     var token: String = ""
@@ -43,10 +44,13 @@ class GameActivity : AppCompatActivity() {
 
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         //chrono logic
         serviceIntent = Intent(applicationContext,TimerService::class.java)
         registerReceiver(updateTime, IntentFilter(TimerService.TIMER_UPDATED))
         startStopTimer()
+
+        //buttons logic
         binding.pauseButton.setOnClickListener { startStopTimer() }
 
         binding.hudRetryButton.setOnClickListener {
@@ -55,6 +59,7 @@ class GameActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
         binding.hudHouseButton.setOnClickListener{
             resetTimer()
             val intent = Intent(this@GameActivity, MainMenuActivity::class.java)
@@ -63,24 +68,28 @@ class GameActivity : AppCompatActivity() {
         }
 
         binding.youWinReloadButton.setOnClickListener {
+            resetTimer()
             val intent = Intent(this@GameActivity, GameActivity::class.java)
             startActivity(intent)
             finish()
         }
 
         binding.youWinHomeButton.setOnClickListener {
+            resetTimer()
             val intent = Intent(this@GameActivity, MainMenuActivity::class.java)
             startActivity(intent)
             finish()
         }
 
         binding.youWinLeaderboardButton.setOnClickListener {
+            resetTimer()
             val intent = Intent(this@GameActivity, LeaderBoardActivity::class.java)
             startActivity(intent)
             finish()
         }
 
         binding.youLoseReloadButton.setOnClickListener {
+            resetTimer()
             val intent = Intent(this@GameActivity, GameActivity::class.java)
             startActivity(intent)
             finish()
@@ -94,6 +103,7 @@ class GameActivity : AppCompatActivity() {
         }
 
         binding.youLoseLeaderboardButton.setOnClickListener {
+            resetTimer()
             val intent = Intent(this@GameActivity, LeaderBoardActivity::class.java)
             startActivity(intent)
             finish()
@@ -144,15 +154,20 @@ class GameActivity : AppCompatActivity() {
         binding.aButton.setOnClickListener{
             checkLetterButton("A")
             binding.aButton.isEnabled = false
+            ShowWin()
         }
         binding.sButton.setOnClickListener{
             checkLetterButton("S")
             binding.sButton.isEnabled = false
         }
-        binding.dButton.setOnClickListener{ checkLetterButton("D"); binding.dButton.isEnabled = false }
+        binding.dButton.setOnClickListener{
+            checkLetterButton("D")
+            binding.dButton.isEnabled = false
+        }
         binding.fButton.setOnClickListener{
             checkLetterButton("F")
             binding.fButton.isEnabled = false
+            ShowLose()
         }
         binding.gButton.setOnClickListener{
             checkLetterButton("G")
@@ -254,17 +269,18 @@ class GameActivity : AppCompatActivity() {
 
     fun checkLetterButton(letter:String)
     {
+        /*
         if (lives <= 0)
         {
-            //Toast.makeText(this, ("Tremendo Malo"), Toast.LENGTH_SHORT).show()
+
             ShowLose()
         }
         if(finishedWord)
         {
-            //Toast.makeText(this, ("YouWin"), Toast.LENGTH_SHORT).show()
+
             ShowWin()
         }
-
+        */
         val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
         val services = outside.create(HangManInterface::class.java)
         services.checkLetter(letter,token).enqueue(object : Callback<GuessLetterHangMan>
@@ -298,6 +314,7 @@ class GameActivity : AppCompatActivity() {
         })
 
     }
+
     fun checkWordFinished(word:String): Boolean
     {
         val result = word.any{
@@ -324,6 +341,7 @@ class GameActivity : AppCompatActivity() {
         val seconds = resultInt % 86400 % 3600 % 60
         return makeTimeString(hours,minutes,seconds)
     }
+
     private fun makeTimeString(hour: Int, min:Int,sec:Int): String = String.format("%02d:%02d:%02d", hour, min, sec)
 
     private fun startStopTimer()

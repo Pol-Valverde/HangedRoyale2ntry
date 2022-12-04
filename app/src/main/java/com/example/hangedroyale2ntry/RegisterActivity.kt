@@ -36,6 +36,7 @@ class RegisterActivity : AppCompatActivity() {
                     finish()
                 }
         }
+
         binding.userNameID.setOnFocusChangeListener { view, hasFocus ->
             if (!hasFocus) {
                 val username = binding.userNameID.text.toString()

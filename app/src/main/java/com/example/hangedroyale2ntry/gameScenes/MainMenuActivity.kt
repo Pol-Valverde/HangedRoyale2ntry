@@ -23,7 +23,7 @@ class MainMenuActivity : AppCompatActivity()
         }
 
         binding.menuExitButton.setOnClickListener{
-            System.exit(0)
+            finish()
         }
 
         binding.menuOptionsButton.setOnClickListener{

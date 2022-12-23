@@ -1,19 +1,18 @@
-package com.example.hangedroyale2ntry
+package com.example.hangedroyale2ntry.gameScenes
 
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.graphics.Color
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
+import com.example.hangedroyale2ntry.dataClasses.ApiHangManGame
+import com.example.hangedroyale2ntry.dataClasses.GuessLetterHangMan
+import com.example.hangedroyale2ntry.otherFiles.HangManInterface
+import com.example.hangedroyale2ntry.otherFiles.TimerService
 import com.example.hangedroyale2ntry.databinding.ActivityGameBinding
-import com.example.hangedroyale2ntry.databinding.ActivityRegisterBinding
-import kotlinx.coroutines.delay
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -46,7 +45,7 @@ class GameActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //chrono logic
-        serviceIntent = Intent(applicationContext,TimerService::class.java)
+        serviceIntent = Intent(applicationContext, TimerService::class.java)
         registerReceiver(updateTime, IntentFilter(TimerService.TIMER_UPDATED))
         startStopTimer()
 

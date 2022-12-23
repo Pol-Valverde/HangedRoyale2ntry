@@ -1,4 +1,4 @@
-package com.example.hangedroyale2ntry
+package com.example.hangedroyale2ntry.dataClasses
 
 data class UserConfig(
     val email: String="",

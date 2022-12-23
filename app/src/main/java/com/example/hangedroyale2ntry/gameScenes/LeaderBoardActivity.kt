@@ -1,8 +1,10 @@
-package com.example.hangedroyale2ntry
+package com.example.hangedroyale2ntry.gameScenes
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.hangedroyale2ntry.leaderBoard.LeaderBoardItem
+import com.example.hangedroyale2ntry.leaderBoard.LeaderBoardRecycleViewAdapter
 import com.example.hangedroyale2ntry.databinding.ActivityLeaderBoardBinding
 
 class LeaderBoardActivity : AppCompatActivity()

@@ -1,4 +1,4 @@
-package com.example.hangedroyale2ntry
+package com.example.hangedroyale2ntry.dataClasses
 
 data class GuessLetterHangMan(
     val token: String,

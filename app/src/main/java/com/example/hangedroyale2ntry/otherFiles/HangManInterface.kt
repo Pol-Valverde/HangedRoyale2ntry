@@ -1,7 +1,8 @@
-package com.example.hangedroyale2ntry
+package com.example.hangedroyale2ntry.otherFiles
 
+import com.example.hangedroyale2ntry.dataClasses.ApiHangManGame
+import com.example.hangedroyale2ntry.dataClasses.GuessLetterHangMan
 import retrofit2.Call
-import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Query

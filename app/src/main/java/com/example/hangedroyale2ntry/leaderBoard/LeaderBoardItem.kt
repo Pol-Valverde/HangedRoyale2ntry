@@ -1,4 +1,4 @@
-package com.example.hangedroyale2ntry
+package com.example.hangedroyale2ntry.leaderBoard
 
 data class LeaderBoardItem(
     val rankingPosition: Int,

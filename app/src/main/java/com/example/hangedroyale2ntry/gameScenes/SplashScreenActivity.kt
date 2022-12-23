@@ -1,7 +1,8 @@
-package com.example.hangedroyale2ntry
+package com.example.hangedroyale2ntry.gameScenes
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.hangedroyale2ntry.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -15,7 +16,7 @@ class SplashScreenActivity : AppCompatActivity() {
         CoroutineScope(Dispatchers.Default).launch {
             delay(3000)
 
-            val intent = Intent(this@SplashScreenActivity,MainActivity::class.java)
+            val intent = Intent(this@SplashScreenActivity, MainActivity::class.java)
             startActivity(intent)
 
             finish()

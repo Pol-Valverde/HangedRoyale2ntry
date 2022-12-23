@@ -1,10 +1,9 @@
-package com.example.hangedroyale2ntry
+package com.example.hangedroyale2ntry.gameScenes
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.hangedroyale2ntry.databinding.ActivityMainMenuBinding
-import com.example.hangedroyale2ntry.databinding.ActivityRegisterBinding
 
 class MainMenuActivity : AppCompatActivity()
 {

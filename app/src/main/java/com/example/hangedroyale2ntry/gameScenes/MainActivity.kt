@@ -1,13 +1,11 @@
-package com.example.hangedroyale2ntry
+package com.example.hangedroyale2ntry.gameScenes
 
-import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.preference.PreferenceManager
 import android.util.Patterns
-import android.widget.Toast
 import com.example.hangedroyale2ntry.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 

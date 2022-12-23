@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/score_background"
-    tools:context=".LeaderBoardActivity">
+    tools:context=".gameScenes.LeaderBoardActivity">
 
     <ImageView
         android:id="@+id/scoreSphere1"

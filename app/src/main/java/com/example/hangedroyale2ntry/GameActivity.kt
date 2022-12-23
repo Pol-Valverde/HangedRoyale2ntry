@@ -32,7 +32,7 @@ class GameActivity : AppCompatActivity() {
     var lives: Int = 5
     var faceAlpha: Int = 0
     var finishedWord: Boolean = false
-
+    val urlApi = "http://hangman.enti.cat:5002/"
     //counter
     private var timerStarted = false
     private lateinit var serviceIntent: Intent
@@ -108,7 +108,7 @@ class GameActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-
+        hangManWord = nextWord().toString()
         binding.wordGame.text = hangManWord
 
         binding.qButton.setOnClickListener{
@@ -154,7 +154,7 @@ class GameActivity : AppCompatActivity() {
         binding.aButton.setOnClickListener{
             checkLetterButton("A")
             binding.aButton.isEnabled = false
-            ShowWin()
+
         }
         binding.sButton.setOnClickListener{
             checkLetterButton("S")
@@ -167,7 +167,7 @@ class GameActivity : AppCompatActivity() {
         binding.fButton.setOnClickListener{
             checkLetterButton("F")
             binding.fButton.isEnabled = false
-            ShowLose()
+
         }
         binding.gButton.setOnClickListener{
             checkLetterButton("G")
@@ -222,7 +222,7 @@ class GameActivity : AppCompatActivity() {
     }
     fun nextWord()
     {
-        val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
+        val outside = Retrofit.Builder().baseUrl(urlApi).addConverterFactory(GsonConverterFactory.create()).build()
         val services = outside.create(HangManInterface::class.java)
         services.getHangmanWord().enqueue(object : Callback<ApiHangManGame> {
             override fun onResponse(call: Call<ApiHangManGame>, response: Response<ApiHangManGame>) {
@@ -269,7 +269,7 @@ class GameActivity : AppCompatActivity() {
 
     fun checkLetterButton(letter:String)
     {
-        /*
+
         if (lives <= 0)
         {
 
@@ -280,8 +280,8 @@ class GameActivity : AppCompatActivity() {
 
             ShowWin()
         }
-        */
-        val outside = Retrofit.Builder().baseUrl("https://hangman-api.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build()
+
+        val outside = Retrofit.Builder().baseUrl(urlApi).addConverterFactory(GsonConverterFactory.create()).build()
         val services = outside.create(HangManInterface::class.java)
         services.checkLetter(letter,token).enqueue(object : Callback<GuessLetterHangMan>
         {
@@ -309,7 +309,7 @@ class GameActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<GuessLetterHangMan>, t: Throwable) {
-                TODO("Not yet implemented")
+                print("error")
             }
         })
 

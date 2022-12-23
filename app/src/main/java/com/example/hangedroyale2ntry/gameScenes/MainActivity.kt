@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         keepLoggedIn = sharedPreference.getBoolean("KeepLogIn", keepLoggedIn)
         binding.switchLogIn.isChecked = keepLoggedIn
 
-        Login(userID.toString(),_password.toString(),editor)
+        login(userID.toString(),_password.toString(),editor)
 
         binding.switchLogIn.setOnClickListener{
             changeKeepLogIn()
@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
         binding.loginButton.setOnClickListener {
             username = binding.usernameID.text.toString()
             password = binding.passwordID.text.toString()
-            Login(username,password,editor)
+            login(username,password,editor)
         }
 
         binding.usernameID.setOnFocusChangeListener { view, hasFocus ->
@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
         keepLoggedIn = binding.switchLogIn.isChecked
     }
 
-    fun Login(user:String,pass:String,edit:SharedPreferences.Editor)
+    fun login(user:String, pass:String, edit:SharedPreferences.Editor)
     {
         firebaseAuth.signInWithEmailAndPassword(user, pass)
             .addOnSuccessListener {

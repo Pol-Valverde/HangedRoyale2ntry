@@ -219,6 +219,7 @@ class GameActivity : AppCompatActivity() {
 
 
     }
+
     fun nextWord()
     {
         val outside = Retrofit.Builder().baseUrl(urlApi).addConverterFactory(GsonConverterFactory.create()).build()
@@ -237,7 +238,7 @@ class GameActivity : AppCompatActivity() {
         })
     }
 
-    fun ShowWin()
+    fun showWin()
     {
         binding.youWinBackground.isVisible = true
         binding.youWinSphere1.isVisible = true
@@ -252,7 +253,7 @@ class GameActivity : AppCompatActivity() {
         binding.youWinScoreText.isVisible = true
     }
 
-    fun ShowLose() {
+    fun showLose() {
         binding.youLoseBackground.isVisible = true
         binding.youLoseSphere1.isVisible = true
         binding.youLoseSphere2.isVisible = true
@@ -272,12 +273,12 @@ class GameActivity : AppCompatActivity() {
         if (lives <= 0)
         {
 
-            ShowLose()
+            showLose()
         }
         if(finishedWord)
         {
 
-            ShowWin()
+            showWin()
         }
 
         val outside = Retrofit.Builder().baseUrl(urlApi).addConverterFactory(GsonConverterFactory.create()).build()
@@ -322,7 +323,6 @@ class GameActivity : AppCompatActivity() {
 
         return result
     }
-
 
     private val updateTime:BroadcastReceiver = object : BroadcastReceiver()
     {
@@ -369,5 +369,4 @@ class GameActivity : AppCompatActivity() {
         time = 0.0
         binding.ChronoID.text = getTimeStringFromDouble(time)
     }
-
 }

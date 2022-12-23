@@ -26,11 +26,14 @@ class RegisterActivity : AppCompatActivity() {
 
             firebaseAuth.signInWithEmailAndPassword(username, password)
                 .addOnSuccessListener {
-                    Toast.makeText(this, ("Account already exists"), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, ("Account already exists."), Toast.LENGTH_SHORT).show()
                 }.addOnFailureListener{
                     firebaseAuth.createUserWithEmailAndPassword(username,password)
 
                     val intent = Intent(this@RegisterActivity, MainMenuActivity::class.java)
+
+                    Toast.makeText(this, ("Account successfully registered."), Toast.LENGTH_SHORT).show()
+
                     startActivity(intent)
                     finish()
                 }

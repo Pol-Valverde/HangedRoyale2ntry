@@ -27,6 +27,7 @@ import com.google.android.gms.ads.rewarded.RewardItem
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
 import android.widget.Toast
 import com.google.android.gms.ads.rewarded.ServerSideVerificationOptions
+import com.example.hangedroyale2ntry.R
 
 class GameActivity : AppCompatActivity() {
 
@@ -58,10 +59,11 @@ class GameActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         var adRequest = AdRequest.Builder().build()
+
         RewardedAd.load(this,"ca-app-pub-3940256099942544~3347511713", adRequest, object : RewardedAdLoadCallback(){
             override fun onAdLoaded(ad: RewardedAd) {
                 //Log.d(TAG, "Ad was loaded.")
-                rewardedInterstitialAd = ad
+                mRewardedAd = ad
                 val options = ServerSideVerificationOptions.Builder()
                     .setCustomData("SAMPLE_CUSTOM_DATA_STRING")
                     .build()
@@ -275,7 +277,10 @@ class GameActivity : AppCompatActivity() {
             checkLetterButton("M")
             binding.mButton.isEnabled = false
         }
-        binding.AdButton.setOnClickListener {
+
+        binding.AdButton.setOnClickListener { // Logic to show ad:
+
+            playSound(R.raw.test, false)
 
             if(mRewardedAd!=null)
             {
@@ -447,13 +452,14 @@ class GameActivity : AppCompatActivity() {
     }
 
     //MUSIC ADDED
-    /*
-    fun playSound(loop:Boolean) {
-        if (mMediaPlayer == null) {
-            mMediaPlayer = MediaPlayer.create(this, R.raw.test)
+    fun playSound(soundName: Int, loop: Boolean)
+    {
+        if (mMediaPlayer == null)
+        {
+            mMediaPlayer = MediaPlayer.create(this, soundName)
             mMediaPlayer!!.isLooping = loop
             mMediaPlayer!!.start()
-        } else mMediaPlayer!!.start()
+        }
+        else mMediaPlayer!!.start()
     }
-    */
 }

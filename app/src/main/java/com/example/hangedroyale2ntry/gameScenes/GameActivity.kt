@@ -52,15 +52,16 @@ class GameActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
-
         super.onCreate(savedInstanceState)
 
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        MobileAds.initialize(this){}
+
         var adRequest = AdRequest.Builder().build()
 
-        RewardedAd.load(this,"ca-app-pub-3940256099942544~3347511713", adRequest, object : RewardedAdLoadCallback(){
+        RewardedAd.load(this,"ca-app-pub-3940256099942544/5224354917", adRequest, object : RewardedAdLoadCallback(){
             override fun onAdLoaded(ad: RewardedAd) {
                 //Log.d(TAG, "Ad was loaded.")
                 mRewardedAd = ad

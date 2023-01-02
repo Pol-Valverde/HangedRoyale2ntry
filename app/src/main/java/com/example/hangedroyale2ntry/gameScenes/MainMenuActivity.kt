@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.os.bundleOf
 import com.example.hangedroyale2ntry.databinding.ActivityMainMenuBinding
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.rewarded.RewardedAd
@@ -17,10 +18,19 @@ import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.example.hangedroyale2ntry.R
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.messaging.FirebaseMessaging
+
+
 class MainMenuActivity : AppCompatActivity()
 {
     private lateinit var binding: ActivityMainMenuBinding
     private lateinit var mAdView : AdView
+    private lateinit var firebaseAnalytics: FirebaseAnalytics
 
     private val CHANNEL_ID = "channel_id_example_01"
     private val notificationId = 101
@@ -34,17 +44,26 @@ class MainMenuActivity : AppCompatActivity()
 
         // Notifications:
         createNotificationChannel()
+        fireBaseNotification()
 
         // Ads:
         MobileAds.initialize(this)
         val request = AdRequest.Builder().build()
         binding.adView2.loadAd(request)
 
+        // Analytics:
+        firebaseAnalytics = Firebase.analytics
+
         // Listeners:
         binding.menuPlayButton.setOnClickListener{
-            // Notification test:
-            sendNotificiation()
-            
+            // Analytics:
+            firebaseAnalytics.logEvent(
+                FirebaseAnalytics.Event.SELECT_ITEM,
+                bundleOf(
+                    FirebaseAnalytics.Param.ITEM_ID to binding.menuPlayButton.id
+                )
+            )
+
             val intent = Intent(this@MainMenuActivity, GameActivity::class.java)
             startActivity(intent)
             finish()
@@ -66,6 +85,22 @@ class MainMenuActivity : AppCompatActivity()
             //finish()
         }
     }
+    private fun fireBaseNotification()
+    {
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if(!task.isSuccessful) {
+                Toast.makeText(this, ("Fetching FCM registration token failed"), Toast.LENGTH_SHORT).show()
+                return@OnCompleteListener
+            }
+
+            val token = task.result
+            println(token)
+
+            val msg = "Somethimg"
+            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+        })
+    }
+
 
     private fun createNotificationChannel()
     {
@@ -93,6 +128,5 @@ class MainMenuActivity : AppCompatActivity()
         with(NotificationManagerCompat.from(this)){
             notify(notificationId,builder.build())
         }
-
     }
 }

@@ -40,7 +40,8 @@ class GameActivity : AppCompatActivity() {
     var lives: Int = 5
     var faceAlpha: Int = 0
     var finishedWord: Boolean = false
-    val urlApi = "http://hangman.enti.cat:5002/"
+    val urlApi = "http://hangman.enti.cat:5002/new/"
+    var boolAd: Boolean = false
     //counter
     private var timerStarted = false
     private lateinit var serviceIntent: Intent
@@ -75,6 +76,8 @@ class GameActivity : AppCompatActivity() {
                 //Log.d(TAG, adError?.toString())
                 mRewardedAd = null
             }
+
+
         })
 
         mRewardedAd?.fullScreenContentCallback = object: FullScreenContentCallback() {
@@ -85,6 +88,8 @@ class GameActivity : AppCompatActivity() {
 
             override fun onAdDismissedFullScreenContent() {
                 // Called when ad is dismissed.
+                // If this works:
+                mRewardedAd
                 // Set the ad reference to null so you don't show the ad a second time.
                 //Log.d(TAG, "Ad dismissed fullscreen content.")
                 mRewardedAd = null
@@ -105,6 +110,7 @@ class GameActivity : AppCompatActivity() {
                 // Called when ad is shown.
                 //Log.d(TAG, "Ad showed fullscreen content.")
             }
+
         }
 
         //chrono logic
@@ -287,15 +293,32 @@ class GameActivity : AppCompatActivity() {
             {
                 mRewardedAd?.show(this, OnUserEarnedRewardListener() {
                     fun onUserEarnedReward(rewardItem: RewardItem) {
+
                         var rewardAmount = rewardItem.amount
                         var rewardType = rewardItem.type
                         Toast.makeText(this, ("Can load Ad"), Toast.LENGTH_SHORT).show()
                     }
+                    Toast.makeText(this, ("On SuccedVideo"), Toast.LENGTH_SHORT).show()
+                    lives = 5
+                    faceAlpha = 0
+                    binding.hudFace.setColorFilter(Color.argb(faceAlpha, 214, 25, 25))
+                    binding.youLoseBackground.isVisible = false
+                    binding.youLoseSphere1.isVisible = false
+                    binding.youLoseSphere2.isVisible = false
+                    binding.youLoseSphere3.isVisible = false
+                    binding.youLoseScoreCanvas.isVisible = false
+                    binding.youLoseFace.isVisible = false
+                    binding.youLoseHomeButton.isVisible = false
+                    binding.youLoseText.isVisible = false
+                    binding.youLoseLeaderboardButton.isVisible = false
+                    binding.youLoseReloadButton.isVisible = false
+                    binding.youLoseScoreText.isVisible = false
+                    binding.AdButton.isVisible = false
+                    boolAd = true
                 })
             } else {
                 Toast.makeText(this, ("Can't load Ad"), Toast.LENGTH_SHORT).show()
             }
-
         }
 
 
@@ -335,6 +358,7 @@ class GameActivity : AppCompatActivity() {
     }
 
     fun showLose() {
+
         binding.youLoseBackground.isVisible = true
         binding.youLoseSphere1.isVisible = true
         binding.youLoseSphere2.isVisible = true
@@ -346,6 +370,7 @@ class GameActivity : AppCompatActivity() {
         binding.youLoseLeaderboardButton.isVisible = true
         binding.youLoseReloadButton.isVisible = true
         binding.youLoseScoreText.isVisible = true
+        if(boolAd == false)
         binding.AdButton.isVisible = true
     }
 

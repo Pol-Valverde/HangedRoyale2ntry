@@ -49,6 +49,7 @@ class GameActivity : AppCompatActivity() {
     private var mRewardedAd: RewardedAd? = null
     private final var TAG = "MainMenuActivity"
     var mMediaPlayer: MediaPlayer? = null
+    var paused: Boolean = false
 
 
     override fun onCreate(savedInstanceState: Bundle?)
@@ -117,10 +118,23 @@ class GameActivity : AppCompatActivity() {
         serviceIntent = Intent(applicationContext, TimerService::class.java)
         registerReceiver(updateTime, IntentFilter(TimerService.TIMER_UPDATED))
         startStopTimer()
+
         //buttons logic
-        binding.pauseButton.setOnClickListener { startStopTimer() }
+        binding.pauseButton.setOnClickListener {
+            if(!paused) {
+                playSound(R.raw.go_forward, false)
+                paused = true
+            }
+            else {
+                playSound(R.raw.go_back, false)
+                paused = false
+            }
+
+            startStopTimer()
+        }
 
         binding.hudRetryButton.setOnClickListener {
+            playSound(R.raw.go_forward, false)
             resetTimer()
             val intent = Intent(this@GameActivity, GameActivity::class.java)
             startActivity(intent)
@@ -128,6 +142,7 @@ class GameActivity : AppCompatActivity() {
         }
 
         binding.hudHouseButton.setOnClickListener{
+            playSound(R.raw.go_back, false)
             resetTimer()
             val intent = Intent(this@GameActivity, MainMenuActivity::class.java)
             startActivity(intent)
@@ -135,6 +150,7 @@ class GameActivity : AppCompatActivity() {
         }
 
         binding.youWinReloadButton.setOnClickListener {
+            playSound(R.raw.go_forward, false)
             resetTimer()
             val intent = Intent(this@GameActivity, GameActivity::class.java)
             startActivity(intent)
@@ -142,6 +158,7 @@ class GameActivity : AppCompatActivity() {
         }
 
         binding.youWinHomeButton.setOnClickListener {
+            playSound(R.raw.go_back, false)
             resetTimer()
             val intent = Intent(this@GameActivity, MainMenuActivity::class.java)
             startActivity(intent)
@@ -149,6 +166,7 @@ class GameActivity : AppCompatActivity() {
         }
 
         binding.youWinLeaderboardButton.setOnClickListener {
+            playSound(R.raw.go_forward, false)
             resetTimer()
             val intent = Intent(this@GameActivity, LeaderBoardActivity::class.java)
             startActivity(intent)
@@ -156,6 +174,7 @@ class GameActivity : AppCompatActivity() {
         }
 
         binding.youLoseReloadButton.setOnClickListener {
+            playSound(R.raw.go_forward, false)
             resetTimer()
             val intent = Intent(this@GameActivity, GameActivity::class.java)
             startActivity(intent)
@@ -163,6 +182,7 @@ class GameActivity : AppCompatActivity() {
         }
 
         binding.youLoseHomeButton.setOnClickListener {
+            playSound(R.raw.go_back, false)
             resetTimer()
             val intent = Intent(this@GameActivity, MainMenuActivity::class.java)
             startActivity(intent)
@@ -170,11 +190,13 @@ class GameActivity : AppCompatActivity() {
         }
 
         binding.youLoseLeaderboardButton.setOnClickListener {
+            playSound(R.raw.go_forward, false)
             resetTimer()
             val intent = Intent(this@GameActivity, LeaderBoardActivity::class.java)
             startActivity(intent)
             finish()
         }
+
         hangManWord = nextWord().toString()
         binding.wordGame.text = hangManWord
 
@@ -221,7 +243,6 @@ class GameActivity : AppCompatActivity() {
         binding.aButton.setOnClickListener{
             checkLetterButton("A")
             binding.aButton.isEnabled = false
-
         }
         binding.sButton.setOnClickListener{
             checkLetterButton("S")
@@ -234,7 +255,6 @@ class GameActivity : AppCompatActivity() {
         binding.fButton.setOnClickListener{
             checkLetterButton("F")
             binding.fButton.isEnabled = false
-
         }
         binding.gButton.setOnClickListener{
             checkLetterButton("G")
@@ -286,8 +306,7 @@ class GameActivity : AppCompatActivity() {
         }
 
         binding.AdButton.setOnClickListener { // Logic to show ad:
-
-            playSound(R.raw.test, false)
+            playSound(R.raw.go_forward, false)
 
             if(mRewardedAd!=null)
             {
@@ -320,8 +339,6 @@ class GameActivity : AppCompatActivity() {
                 Toast.makeText(this, ("Can't load Ad"), Toast.LENGTH_SHORT).show()
             }
         }
-
-
     }
 
     fun nextWord()
@@ -334,7 +351,6 @@ class GameActivity : AppCompatActivity() {
                 hangManWord = hangManResult?.hangman ?: ""
                 token = hangManResult?.token?:""
                 print(hangManWord);
-
             }
             override fun onFailure(call: Call<ApiHangManGame>, t: Throwable) {
                 print("Something went wrong")
@@ -342,8 +358,8 @@ class GameActivity : AppCompatActivity() {
         })
     }
 
-    fun showWin()
-    {
+    fun showWin() {
+        playSound(R.raw.you_win, false)
         binding.youWinBackground.isVisible = true
         binding.youWinSphere1.isVisible = true
         binding.youWinSphere2.isVisible = true
@@ -358,7 +374,7 @@ class GameActivity : AppCompatActivity() {
     }
 
     fun showLose() {
-
+        playSound(R.raw.you_lose, false)
         binding.youLoseBackground.isVisible = true
         binding.youLoseSphere1.isVisible = true
         binding.youLoseSphere2.isVisible = true
@@ -376,15 +392,12 @@ class GameActivity : AppCompatActivity() {
 
     fun checkLetterButton(letter:String)
     {
-
         if (lives <= 0)
         {
-
             showLose()
         }
         if(finishedWord)
         {
-
             showWin()
         }
 
@@ -403,12 +416,14 @@ class GameActivity : AppCompatActivity() {
                 binding.wordGame.text = currentWord
                 if(!boolLetter)
                 {
+                    playSound(R.raw.incorrect, false)
                     lives--;
-
                     faceAlpha += 75
-
                     binding.hudFace.setColorFilter(Color.argb(faceAlpha, 214, 25, 25))
                 }
+                else
+                    playSound(R.raw.correct, false)
+
                 if(!checkWordFinished(currentWord))
                 {
                     finishedWord = true
@@ -419,7 +434,6 @@ class GameActivity : AppCompatActivity() {
                 print("error")
             }
         })
-
     }
 
     fun checkWordFinished(word:String): Boolean
@@ -480,6 +494,8 @@ class GameActivity : AppCompatActivity() {
     //MUSIC ADDED
     fun playSound(soundName: Int, loop: Boolean)
     {
+        mMediaPlayer = null
+
         if (mMediaPlayer == null)
         {
             mMediaPlayer = MediaPlayer.create(this, soundName)

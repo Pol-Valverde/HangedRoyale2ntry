@@ -28,11 +28,15 @@ import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
 import android.widget.Toast
 import com.google.android.gms.ads.rewarded.ServerSideVerificationOptions
 import com.example.hangedroyale2ntry.R
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.analytics.ktx.logEvent
+import com.google.firebase.ktx.Firebase
 
 class GameActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityGameBinding
-
+    private val firebaseAnalytics = Firebase.analytics
     var hangManWord: String = ""
     var currentWord: String = ""
     var token: String = ""
@@ -175,6 +179,9 @@ class GameActivity : AppCompatActivity() {
 
         binding.youLoseReloadButton.setOnClickListener {
             playSound(R.raw.go_forward, false)
+            firebaseAnalytics.logEvent("new_chance"){
+                param("boolAd","false")
+            }
             resetTimer()
             val intent = Intent(this@GameActivity, GameActivity::class.java)
             startActivity(intent)
@@ -184,6 +191,9 @@ class GameActivity : AppCompatActivity() {
         binding.youLoseHomeButton.setOnClickListener {
             playSound(R.raw.go_back, false)
             resetTimer()
+            firebaseAnalytics.logEvent("new_chance"){
+                param("boolAd","false")
+            }
             val intent = Intent(this@GameActivity, MainMenuActivity::class.java)
             startActivity(intent)
             finish()
@@ -192,6 +202,9 @@ class GameActivity : AppCompatActivity() {
         binding.youLoseLeaderboardButton.setOnClickListener {
             playSound(R.raw.go_forward, false)
             resetTimer()
+            firebaseAnalytics.logEvent("new_chance"){
+                param("boolAd","false")
+            }
             val intent = Intent(this@GameActivity, LeaderBoardActivity::class.java)
             startActivity(intent)
             finish()
@@ -334,6 +347,9 @@ class GameActivity : AppCompatActivity() {
                     binding.youLoseScoreText.isVisible = false
                     binding.AdButton.isVisible = false
                     boolAd = true
+                    firebaseAnalytics.logEvent("new_chance"){
+                        param("boolAd","true")
+                    }
                 })
             } else {
                 Toast.makeText(this, ("Can't load Ad"), Toast.LENGTH_SHORT).show()

@@ -28,9 +28,10 @@ import com.google.firebase.messaging.FirebaseMessaging
 
 class MainMenuActivity : AppCompatActivity()
 {
+    private val firebaseAnalytics = Firebase.analytics
     private lateinit var binding: ActivityMainMenuBinding
     private lateinit var mAdView : AdView
-    private lateinit var firebaseAnalytics: FirebaseAnalytics
+
 
     private val CHANNEL_ID = "channel_id_example_01"
     private val notificationId = 101
@@ -51,18 +52,14 @@ class MainMenuActivity : AppCompatActivity()
         val request = AdRequest.Builder().build()
         binding.adView2.loadAd(request)
 
-        // Analytics:
-        firebaseAnalytics = Firebase.analytics
+        // Analytics
 
         // Listeners:
         binding.menuPlayButton.setOnClickListener{
             // Analytics:
-            firebaseAnalytics.logEvent(
-                FirebaseAnalytics.Event.SELECT_ITEM,
-                bundleOf(
-                    FirebaseAnalytics.Param.ITEM_ID to binding.menuPlayButton.id
-                )
-            )
+            firebaseAnalytics.logEvent("StartPlaying",null)
+
+
 
             val intent = Intent(this@MainMenuActivity, GameActivity::class.java)
             startActivity(intent)

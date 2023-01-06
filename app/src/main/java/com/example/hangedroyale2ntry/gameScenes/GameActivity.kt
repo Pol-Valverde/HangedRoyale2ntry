@@ -127,13 +127,76 @@ class GameActivity : AppCompatActivity() {
         binding.pauseButton.setOnClickListener {
             if(!paused) {
                 playSound(R.raw.go_forward, false)
+                binding.pauseButton.isVisible = false
+                binding.unpauseButton.isVisible = true
+                binding.pauseGrey.isVisible = true
+                binding.pausedText.isVisible = true
+                binding.qButton.isClickable = false
+                binding.wButton.isClickable = false
+                binding.eButton.isClickable = false
+                binding.rButton.isClickable = false
+                binding.tButton.isClickable = false
+                binding.yButton.isClickable = false
+                binding.uButton.isClickable = false
+                binding.iButton.isClickable = false
+                binding.oButton.isClickable = false
+                binding.pButton.isClickable = false
+                binding.aButton.isClickable = false
+                binding.sButton.isClickable = false
+                binding.dButton.isClickable = false
+                binding.fButton.isClickable = false
+                binding.gButton.isClickable = false
+                binding.hButton.isClickable = false
+                binding.jButton.isClickable = false
+                binding.kButton.isClickable = false
+                binding.lButton.isClickable = false
+                binding.zButton.isClickable = false
+                binding.xButton.isClickable = false
+                binding.cButton.isClickable = false
+                binding.vButton.isClickable = false
+                binding.bButton.isClickable = false
+                binding.nButton.isClickable = false
+                binding.mButton.isClickable = false
                 paused = true
             }
-            else {
+            startStopTimer()
+        }
+
+        binding.unpauseButton.setOnClickListener {
+            if (paused) {
                 playSound(R.raw.go_back, false)
+                binding.pauseButton.isVisible = true
+                binding.unpauseButton.isVisible = false
+                binding.pauseGrey.isVisible = false
+                binding.pausedText.isVisible = false
+                binding.qButton.isClickable = true
+                binding.wButton.isClickable = true
+                binding.eButton.isClickable = true
+                binding.rButton.isClickable = true
+                binding.tButton.isClickable = true
+                binding.yButton.isClickable = true
+                binding.uButton.isClickable = true
+                binding.iButton.isClickable = true
+                binding.oButton.isClickable = true
+                binding.pButton.isClickable = true
+                binding.aButton.isClickable = true
+                binding.sButton.isClickable = true
+                binding.dButton.isClickable = true
+                binding.fButton.isClickable = true
+                binding.gButton.isClickable = true
+                binding.hButton.isClickable = true
+                binding.jButton.isClickable = true
+                binding.kButton.isClickable = true
+                binding.lButton.isClickable = true
+                binding.zButton.isClickable = true
+                binding.xButton.isClickable = true
+                binding.cButton.isClickable = true
+                binding.vButton.isClickable = true
+                binding.bButton.isClickable = true
+                binding.nButton.isClickable = true
+                binding.mButton.isClickable = true
                 paused = false
             }
-
             startStopTimer()
         }
 
@@ -217,6 +280,7 @@ class GameActivity : AppCompatActivity() {
             checkLetterButton("Q")
             binding.qButton.isEnabled = false
         }
+
         binding.wButton.setOnClickListener{
             checkLetterButton("W")
             binding.wButton.isEnabled = false
@@ -387,6 +451,32 @@ class GameActivity : AppCompatActivity() {
         binding.youWinLeaderboardButton.isVisible = true
         binding.youWinReloadButton.isVisible = true
         binding.youWinScoreText.isVisible = true
+        binding.qButton.isClickable = false
+        binding.wButton.isClickable = false
+        binding.eButton.isClickable = false
+        binding.rButton.isClickable = false
+        binding.tButton.isClickable = false
+        binding.yButton.isClickable = false
+        binding.uButton.isClickable = false
+        binding.iButton.isClickable = false
+        binding.oButton.isClickable = false
+        binding.pButton.isClickable = false
+        binding.aButton.isClickable = false
+        binding.sButton.isClickable = false
+        binding.dButton.isClickable = false
+        binding.fButton.isClickable = false
+        binding.gButton.isClickable = false
+        binding.hButton.isClickable = false
+        binding.jButton.isClickable = false
+        binding.kButton.isClickable = false
+        binding.lButton.isClickable = false
+        binding.zButton.isClickable = false
+        binding.xButton.isClickable = false
+        binding.cButton.isClickable = false
+        binding.vButton.isClickable = false
+        binding.bButton.isClickable = false
+        binding.nButton.isClickable = false
+        binding.mButton.isClickable = false
     }
 
     fun showLose() {
@@ -403,7 +493,36 @@ class GameActivity : AppCompatActivity() {
         binding.youLoseReloadButton.isVisible = true
         binding.youLoseScoreText.isVisible = true
         if(boolAd == false)
-        binding.AdButton.isVisible = true
+            binding.AdButton.isVisible = true
+        else
+        {
+            binding.qButton.isClickable = false
+            binding.wButton.isClickable = false
+            binding.eButton.isClickable = false
+            binding.rButton.isClickable = false
+            binding.tButton.isClickable = false
+            binding.yButton.isClickable = false
+            binding.uButton.isClickable = false
+            binding.iButton.isClickable = false
+            binding.oButton.isClickable = false
+            binding.pButton.isClickable = false
+            binding.aButton.isClickable = false
+            binding.sButton.isClickable = false
+            binding.dButton.isClickable = false
+            binding.fButton.isClickable = false
+            binding.gButton.isClickable = false
+            binding.hButton.isClickable = false
+            binding.jButton.isClickable = false
+            binding.kButton.isClickable = false
+            binding.lButton.isClickable = false
+            binding.zButton.isClickable = false
+            binding.xButton.isClickable = false
+            binding.cButton.isClickable = false
+            binding.vButton.isClickable = false
+            binding.bButton.isClickable = false
+            binding.nButton.isClickable = false
+            binding.mButton.isClickable = false
+        }
     }
 
     fun checkLetterButton(letter:String)

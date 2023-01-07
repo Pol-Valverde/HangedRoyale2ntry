@@ -26,22 +26,27 @@ import com.google.android.gms.ads.*
 import com.google.android.gms.ads.rewarded.RewardItem
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
 import android.widget.Toast
+import androidx.preference.PreferenceManager
 import com.google.android.gms.ads.rewarded.ServerSideVerificationOptions
 import com.example.hangedroyale2ntry.R
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.analytics.ktx.logEvent
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
 class GameActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityGameBinding
     private val firebaseAnalytics = Firebase.analytics
+    private lateinit var database: DatabaseReference
     var hangManWord: String = ""
     var currentWord: String = ""
     var token: String = ""
     var boolLetter: Boolean = false
-    var lives: Int = 5
+    var lives: Int = 50
     var faceAlpha: Int = 0
     var finishedWord: Boolean = false
     val urlApi = "http://hangman.enti.cat:5002/new/"
@@ -54,6 +59,9 @@ class GameActivity : AppCompatActivity() {
     private final var TAG = "MainMenuActivity"
     var mMediaPlayer: MediaPlayer? = null
     var paused: Boolean = false
+    var points: Int = 0
+
+    var username: String = "empty"
 
 
     override fun onCreate(savedInstanceState: Bundle?)
@@ -63,8 +71,15 @@ class GameActivity : AppCompatActivity() {
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        MobileAds.initialize(this){}
+        val sharedPreference = PreferenceManager.getDefaultSharedPreferences(this)
+        val editor = sharedPreference.edit()
+        var userID  = sharedPreference.getString("username", MainActivity.username)
+        username = userID.toString()
 
+        database = Firebase.database("https://hangedroyale2ntry-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Users") // collection name
+
+        Toast.makeText(this, userID, Toast.LENGTH_SHORT).show()
+        MobileAds.initialize(this){}
         var adRequest = AdRequest.Builder().build()
 
         RewardedAd.load(this,"ca-app-pub-3940256099942544/5224354917", adRequest, object : RewardedAdLoadCallback(){
@@ -477,6 +492,8 @@ class GameActivity : AppCompatActivity() {
         binding.bButton.isClickable = false
         binding.nButton.isClickable = false
         binding.mButton.isClickable = false
+
+        database.child(username.replace('.','_').replace('#','_').replace('$','_').replace('[','_').replace(']','_').replace('/','_')).setValue(points.toDouble())
     }
 
     fun showLose() {
@@ -554,14 +571,21 @@ class GameActivity : AppCompatActivity() {
                     playSound(R.raw.incorrect, false)
                     lives--;
                     faceAlpha += 75
+                    points-=1
                     binding.hudFace.setColorFilter(Color.argb(faceAlpha, 214, 25, 25))
                 }
                 else
+                {
                     playSound(R.raw.correct, false)
+                    points+=5
+                }
+
 
                 if(!checkWordFinished(currentWord))
                 {
                     finishedWord = true
+                    points+=50
+                    //CALL REALTIME
                 }
             }
 

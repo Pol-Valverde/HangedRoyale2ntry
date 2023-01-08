@@ -61,7 +61,7 @@ class GameActivity : AppCompatActivity() {
     var paused: Boolean = false
     var points: Int = 0
 
-    var username: String = "empty"
+    var username: String = "Guest-20905372"
 
 
     override fun onCreate(savedInstanceState: Bundle?)

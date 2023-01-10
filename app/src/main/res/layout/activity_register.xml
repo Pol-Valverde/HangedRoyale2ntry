@@ -12,7 +12,7 @@
         android:layout_width="687dp"
         android:layout_height="1042dp"
         android:layout_marginTop="350dp"
-        android:contentDescription="@string/content_desc_main_screen_sphere_1"
+        android:contentDescription="@string/content_desc_register_screen_sphere_1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.098"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="404dp"
-        android:contentDescription="@string/content_desc_main_screen_sphere_2"
+        android:contentDescription="@string/content_desc_register_screen_sphere_2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.11"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,10 +38,11 @@
         android:layout_height="917dp"
         android:layout_marginEnd="132dp"
         android:layout_marginBottom="232dp"
-        android:contentDescription="@string/content_desc_main_screen_sphere_3"
+        android:contentDescription="@string/content_desc_register_screen_sphere_3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/main_screen_sphere1" />
+        app:srcCompat="@drawable/main_screen_sphere1"
+        tools:ignore="ImageContrastCheck" />
 
     <ImageView
         android:id="@+id/mainScreenCanvasUsername"
@@ -49,12 +50,13 @@
         android:layout_height="95dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:contentDescription="@string/content_desc_main_screen_canvas_username"
+        android:contentDescription="@string/content_desc_register_canvas_username"
         app:layout_constraintBottom_toBottomOf="@+id/userNameID"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/userNameID"
-        app:srcCompat="@drawable/main_screen_main_canvas" />
+        app:srcCompat="@drawable/main_screen_main_canvas"
+        tools:ignore="ImageContrastCheck" />
 
     <ImageView
         android:id="@+id/mainScreenCanvasPassword"
@@ -62,12 +64,13 @@
         android:layout_height="95dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:contentDescription="@string/content_desc_main_screen_canvas_password"
+        android:contentDescription="@string/content_desc_register_canvas_password"
         app:layout_constraintBottom_toBottomOf="@+id/passwordID"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/passwordID"
-        app:srcCompat="@drawable/main_screen_main_canvas" />
+        app:srcCompat="@drawable/main_screen_main_canvas"
+        tools:ignore="ImageContrastCheck" />
 
     <ImageView
         android:id="@+id/mainScreenFace"
@@ -75,7 +78,7 @@
         android:layout_height="100dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:contentDescription="@string/content_desc_main_screen_face"
+        android:contentDescription="@string/content_desc_register_face"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/main_screen_face" />
@@ -91,7 +94,8 @@
         android:hint="@string/text_hint_e_mail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/passwordID"
@@ -104,7 +108,8 @@
         android:hint="@string/text_hint_password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userNameID" />
+        app:layout_constraintTop_toBottomOf="@+id/userNameID"
+        tools:ignore="TextContrastCheck" />
 
     <ImageButton
         android:id="@+id/nextButton"
@@ -129,7 +134,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/nextButton"
         app:layout_constraintEnd_toEndOf="@+id/nextButton"
         app:layout_constraintStart_toStartOf="@+id/nextButton"
-        app:layout_constraintTop_toTopOf="@+id/nextButton" />
+        app:layout_constraintTop_toTopOf="@+id/nextButton"
+        tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/textView2"
@@ -146,6 +152,7 @@
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

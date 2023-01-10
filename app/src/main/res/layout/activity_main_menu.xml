@@ -14,6 +14,7 @@
         android:layout_height="276dp"
         android:layout_marginStart="-100dp"
         android:scaleType="fitCenter"
+        android:contentDescription="@string/content_desc_menu_sphere_1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.026"
@@ -28,6 +29,7 @@
         android:layout_height="501dp"
         android:layout_marginStart="100dp"
         android:layout_marginBottom="-250dp"
+        android:contentDescription="@string/content_desc_menu_sphere_2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -42,6 +44,7 @@
         android:layout_height="356dp"
         android:layout_marginTop="-150dp"
         android:layout_marginEnd="-150dp"
+        android:contentDescription="@string/content_desc_menu_sphere_3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -55,6 +58,7 @@
         android:layout_width="262dp"
         android:layout_height="368dp"
         android:layout_marginTop="-200dp"
+        android:contentDescription="@string/content_desc_menu_face"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.671"
@@ -69,6 +73,7 @@
         android:layout_height="98dp"
         android:background="#00FFFFFF"
         android:scaleType="centerInside"
+        android:contentDescription="@string/content_desc_menu_options_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.893"
@@ -83,6 +88,7 @@
         android:layout_height="98dp"
         android:background="#00FFFFFF"
         android:scaleType="centerInside"
+        android:contentDescription="@string/content_desc_exit_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -96,6 +102,7 @@
         android:layout_width="92dp"
         android:layout_height="98dp"
         android:background="#00FFFFFF"
+        android:contentDescription="@string/content_desc_menu_leaderboard_button"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -103,13 +110,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.707"
-        app:srcCompat="@drawable/main_screen_leaderboard_button" />
+        app:srcCompat="@drawable/main_screen_leaderboard_button"
+        tools:ignore="RedundantDescriptionCheck" />
 
     <ImageButton
         android:id="@+id/menuPlayButton"
         android:layout_width="126dp"
         android:layout_height="121dp"
         android:background="#00FFFFFF"
+        android:contentDescription="@string/content_desc_play_button"
         android:rotation="-180"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -118,7 +127,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.644"
-        app:srcCompat="@drawable/options_back" />
+        app:srcCompat="@drawable/options_back"
+        tools:ignore="RedundantDescriptionCheck" />
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView2"

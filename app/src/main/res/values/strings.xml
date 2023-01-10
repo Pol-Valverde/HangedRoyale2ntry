@@ -1,20 +1,9 @@
 <resources>
     <string name="app_name">Hanged Royale 2nTry</string>
 
-    <string name="content_desc_pause_button">pauseButton</string>
-    <string name="content_desc_house_button">homeButton</string>
-    <string name="content_desc_ad_button">adButton</string>
-
-    <string name="content_desc_hud_face_damage">hudFaceDamage</string>
-    <string name="content_desc_unpause_button">unpauseButton</string>
-    <string name="content_desc_canvas_word">canvasWord</string>
-    <string name="content_desc_hud_retry_button">hudRetryButton</string>
-    <string name="content_desc_grey_background">greyBackground</string>
-    <string name="content_desc_hud_sphere_1">hudSphere1</string>
-    <string name="content_desc_hud_sphere_2">hudSphere2</string>
-    <string name="content_desc_hud_sphere_3">hudSphere3</string>
 
 
+    <!--YOU WIN CANVAS-->
     <string name="content_desc_you_win_face">youWinFace</string>
     <string name="content_desc_you_win_leaderboard_button">youWinLeaderboardButton</string>
     <string name="content_desc_you_win_home_button">youWinHomeButton</string>
@@ -24,6 +13,7 @@
     <string name="content_desc_you_win_sphere_2">youWinSphere2</string>
     <string name="content_desc_you_win_sphere_3">youWinSphere3</string>
 
+    <!--YOU LOSE CANVAS-->
     <string name="content_desc_you_lose_face">youLoseFace</string>
     <string name="content_desc_you_lose_leaderboard_button">youLoseLeaderboardButton</string>
     <string name="content_desc_you_lose_home_button">youLoseHomeButton</string>
@@ -32,14 +22,18 @@
     <string name="content_desc_you_lose_sphere_1">youLoseSphere1</string>
     <string name="content_desc_you_lose_sphere_2">youLoseSphere2</string>
     <string name="content_desc_you_lose_sphere_3">youLoseSphere3</string>
+    <string name="content_desc_ad_button">adButton</string>
 
+    <!--MAIN SCREEN-->
     <string name="content_desc_main_screen_sphere_1">mainScreenSphere1</string>
     <string name="content_desc_main_screen_sphere_2">mainScreenSphere2</string>
     <string name="content_desc_main_screen_sphere_3">mainScreenSphere3</string>
     <string name="content_desc_main_screen_canvas_username">mainScreenCanvasUsername</string>
     <string name="content_desc_main_screen_canvas_password">mainScreenCanvasPassword</string>
     <string name="content_desc_main_screen_face">mainScreenFace</string>
+    <string name="content_desc_guest_button">guest Button</string>
 
+    <!--TEXTS-->
     <string name="text_create_your_account">Create your account!</string>
     <string name="text_paused">PAUSED</string>
     <string name="text_score_label">Score:</string>
@@ -47,6 +41,98 @@
     <string name="text_you_win">You Win!</string>
     <string name="text_hint_e_mail">E-mail</string>
     <string name="text_hint_password">Password</string>
-    <string name="content_desc_next_button">Next</string>
     <string name="text_next">NEXT</string>
+    <string name="text_login">LOGIN</string>
+    <string name="text_register">REGISTER</string>
+    <string name="text_play_as_guest">PLAY AS GUEST</string>
+    <string name="text_auto_log_in">Auto Log-in</string>
+    <string name="text_leaderboard">LeaderBoard</string>
+    <string name="text_log_out">Log Out</string>
+
+    <!--GAME-->
+    <string name="letter_q">Q</string>
+    <string name="letter_n">N</string>
+    <string name="letter_m">M</string>
+    <string name="letter_v">V</string>
+    <string name="letter_z">Z</string>
+    <string name="letter_b">B</string>
+    <string name="letter_c">C</string>
+    <string name="letter_s">S</string>
+    <string name="letter_l">L</string>
+    <string name="letter_a">A</string>
+    <string name="letter_g">G</string>
+    <string name="letter_f">F</string>
+    <string name="letter_k">K</string>
+    <string name="letter_h">H</string>
+    <string name="letter_j">J</string>
+    <string name="letter_d">D</string>
+    <string name="letter_u">U</string>
+    <string name="letter_i">I</string>
+    <string name="letter_o">O</string>
+    <string name="letter_p">P</string>
+    <string name="letter_r">R</string>
+    <string name="letter_t">T</string>
+    <string name="letter_e">E</string>
+    <string name="letter_y">Y</string>
+    <string name="letter_w">W</string>
+    <string name="letter_x">X</string>
+    <string name="Timer_00_00_00">00:00:00</string>
+    <string name="content_desc_hud_face_damage">hudFaceDamage</string>
+    <string name="content_desc_unpause_button">unpauseButton</string>
+    <string name="content_desc_canvas_word">canvasWord</string>
+    <string name="content_desc_hud_retry_button">hudRetryButton</string>
+    <string name="content_desc_grey_background">greyBackground</string>
+    <string name="content_desc_hud_sphere_1">hudSphere1</string>
+    <string name="content_desc_hud_sphere_2">hudSphere2</string>
+    <string name="content_desc_hud_sphere_3">hudSphere3</string>
+    <string name="content_desc_pause_button">pauseButton</string>
+    <string name="content_desc_house_button">homeButton</string>
+
+    <!--LEADERBOARD-->
+    <string name="content_desc_score_sphere_1">score Sphere 1</string>
+    <string name="content_desc_score_sphere_2">score Sphere 2</string>
+    <string name="content_desc_score_sphere_3">score Sphere 3</string>
+    <string name="content_desc_score_face">scoreFace</string>
+    <string name="content_desc_score_home_button">scoreHomeButton</string>
+
+    <string name="content_desc_login_button">loginButton</string>
+    <string name="content_desc_next_button">Next</string>
+
+    <!--REGISTER-->
+    <string name="content_desc_register_button">register Button</string>
+    <string name="content_desc_register_canvas_username">register Canvas Username</string>
+    <string name="content_desc_register_canvas_password">Register Canvas Password</string>
+    <string name="content_desc_register_face">register Face</string>
+    <string name="content_desc_register_screen_sphere_3">register Screen Sphere 3</string>
+    <string name="content_desc_register_screen_sphere_2">register Screen Sphere 2</string>
+    <string name="content_desc_register_screen_sphere_1">Register Screen Sphere 1</string>
+
+    <!--MENU-->
+    <string name="content_desc_exit_button">exitButton</string>
+    <string name="content_desc_menu_options_button">optionsButton</string>
+    <string name="content_desc_play_button">playButton</string>
+    <string name="content_desc_menu_leaderboard_button">leaderboardButton</string>
+    <string name="content_desc_menu_sphere_1">menuSphere1</string>
+    <string name="content_desc_menu_sphere_2">menuSphere2</string>
+    <string name="content_desc_menu_sphere_3">menuSphere3</string>
+    <string name="content_desc_menu_face">menuFace</string>
+
+    <!--OPTIONS-->
+    <string name="content_desc_options_sphere_3">optionsSphere3</string>
+    <string name="content_desc_options_sphere_2">optionsSphere2</string>
+    <string name="content_desc_options_sphere_1">optionsSphere1</string>
+    <string name="content_desc_options_canvas">optionsCanvas</string>
+    <string name="text_options">OPTIONS</string>
+    <string name="text_sound">Sound</string>
+    <string name="text_notifications">Notifications</string>
+    <string name="content_desc_options_home_button">homeButton</string>
+
+    <!--SPLASH SCREEN-->
+    <string name="content_desc_splash_screen_background">splash Screen Background</string>
+    <string name="content_desc_splash_screen_sphere_1">splash Screen Sphere 1</string>
+    <string name="content_desc_splash_screen_sphere_2">splash Screen Sphere 2</string>
+    <string name="content_desc_splash_screen_sphere_3">splash Screen Sphere 3</string>
+    <string name="main_text_hanged_royale">Hanged Royale</string>
+    <string name="content_desc_splash_screen_face">splash Screen Face</string>
+
 </resources>

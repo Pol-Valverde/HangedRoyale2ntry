@@ -491,6 +491,7 @@ class GameActivity : AppCompatActivity() {
     }
 
     fun showWin() {
+
         playSound(R.raw.you_win, false)
         binding.youWinBackground.isVisible = true
         binding.youWinSphere1.isVisible = true
@@ -502,6 +503,7 @@ class GameActivity : AppCompatActivity() {
         binding.youWinText.isVisible = true
         binding.youWinLeaderboardButton.isVisible = true
         binding.youWinReloadButton.isVisible = true
+        binding.youWinScoreText.text = points.toString()
         binding.youWinScoreText.isVisible = true
         binding.qButton.isClickable = false
         binding.wButton.isClickable = false
@@ -545,6 +547,7 @@ class GameActivity : AppCompatActivity() {
         binding.youLoseText.isVisible = true
         binding.youLoseLeaderboardButton.isVisible = true
         binding.youLoseReloadButton.isVisible = true
+        binding.youLoseScoreText.text = points.toString()
         binding.youLoseScoreText.isVisible = true
         binding.qButton.isClickable = false
         binding.wButton.isClickable = false

@@ -62,11 +62,11 @@
         android:layout_width="38dp"
         android:layout_height="45dp"
         android:layout_marginBottom="-200dp"
-        android:background="@drawable/hud_letter_cavnas_neutral"
+        android:background="@drawable/hud_letter_canvas_neutral"
         android:elevation="1dp"
         android:fontFamily="@font/grobold"
         android:padding="1dp"
-        android:text="Q"
+        android:text="@string/letter_q"
         android:textColor="#FFD2D2"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -74,18 +74,19 @@
         app:layout_constraintHorizontal_bias="0.014"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.553" />
+        app:layout_constraintVertical_bias="0.553"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/nButton"
         android:layout_width="38dp"
         android:layout_height="45dp"
         android:layout_marginBottom="-200dp"
-        android:background="@drawable/hud_letter_cavnas_neutral"
+        android:background="@drawable/hud_letter_canvas_neutral"
         android:elevation="1dp"
         android:fontFamily="@font/grobold"
         android:padding="1dp"
-        android:text="N"
+        android:text="@string/letter_n"
         android:textColor="#FFD2D2"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -93,18 +94,19 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/bButton"
         app:layout_constraintTop_toBottomOf="@+id/jButton"
-        app:layout_constraintVertical_bias="0.072" />
+        app:layout_constraintVertical_bias="0.072"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/mButton"
         android:layout_width="38dp"
         android:layout_height="45dp"
         android:layout_marginBottom="-200dp"
-        android:background="@drawable/hud_letter_cavnas_neutral"
+        android:background="@drawable/hud_letter_canvas_neutral"
         android:elevation="1dp"
         android:fontFamily="@font/grobold"
         android:padding="1dp"
-        android:text="M"
+        android:text="@string/letter_m"
         android:textColor="#FFD2D2"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -112,18 +114,19 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/nButton"
         app:layout_constraintTop_toBottomOf="@+id/kButton"
-        app:layout_constraintVertical_bias="0.072" />
+        app:layout_constraintVertical_bias="0.072"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/vButton"
         android:layout_width="38dp"
         android:layout_height="45dp"
         android:layout_marginBottom="-200dp"
-        android:background="@drawable/hud_letter_cavnas_neutral"
+        android:background="@drawable/hud_letter_canvas_neutral"
         android:elevation="1dp"
         android:fontFamily="@font/grobold"
         android:padding="1dp"
-        android:text="V"
+        android:text="@string/letter_v"
         android:textColor="#FFD2D2"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -131,7 +134,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/cButton"
         app:layout_constraintTop_toBottomOf="@+id/gButton"
-        app:layout_constraintVertical_bias="0.072" />
+        app:layout_constraintVertical_bias="0.072"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/zButton"
@@ -139,11 +143,11 @@
         android:layout_height="45dp"
         android:layout_marginStart="-350dp"
         android:layout_marginBottom="-200dp"
-        android:background="@drawable/hud_letter_cavnas_neutral"
+        android:background="@drawable/hud_letter_canvas_neutral"
         android:elevation="1dp"
         android:fontFamily="@font/grobold"
         android:padding="1dp"
-        android:text="Z"
+        android:text="@string/letter_z"
         android:textColor="#FFD2D2"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -151,18 +155,19 @@
         app:layout_constraintHorizontal_bias="0.565"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sButton"
-        app:layout_constraintVertical_bias="0.072" />
+        app:layout_constraintVertical_bias="0.072"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/bButton"
         android:layout_width="38dp"
         android:layout_height="45dp"
         android:layout_marginBottom="-200dp"
-        android:background="@drawable/hud_letter_cavnas_neutral"
+        android:background="@drawable/hud_letter_canvas_neutral"
         android:elevation="1dp"
         android:fontFamily="@font/grobold"
         android:padding="1dp"
-        android:text="B"
+        android:text="@string/letter_b"
         android:textColor="#FFD2D2"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -170,18 +175,19 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/vButton"
         app:layout_constraintTop_toBottomOf="@+id/hButton"
-        app:layout_constraintVertical_bias="0.072" />
+        app:layout_constraintVertical_bias="0.072"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/cButton"
         android:layout_width="38dp"
         android:layout_height="45dp"
         android:layout_marginBottom="-200dp"
-        android:background="@drawable/hud_letter_cavnas_neutral"
+        android:background="@drawable/hud_letter_canvas_neutral"
         android:elevation="1dp"
         android:fontFamily="@font/grobold"
         android:padding="1dp"
-        android:text="C"
+        android:text="@string/letter_c"
         android:textColor="#FFD2D2"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -189,18 +195,19 @@
         app:layout_constraintHorizontal_bias="0.004"
         app:layout_constraintStart_toEndOf="@+id/xButton"
         app:layout_constraintTop_toBottomOf="@+id/fButton"
-        app:layout_constraintVertical_bias="0.072" />
+        app:layout_constraintVertical_bias="0.072"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/sButton"
         android:layout_width="38dp"
         android:layout_height="45dp"
         android:layout_marginBottom="-200dp"
-        android:background="@drawable/hud_letter_cavnas_neutral"
+        android:background="@drawable/hud_letter_canvas_neutral"
         android:elevation="1dp"
         android:fontFamily="@font/grobold"
         android:padding="1dp"
-        android:text="S"
+        android:text="@string/letter_s"
         android:textColor="#FFD2D2"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -208,18 +215,19 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/aButton"
         app:layout_constraintTop_toBottomOf="@+id/wButton"
-        app:layout_constraintVertical_bias="0.081" />
+        app:layout_constraintVertical_bias="0.081"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/lButton"
         android:layout_width="38dp"
         android:layout_height="45dp"
         android:layout_marginBottom="-200dp"
-        android:background="@drawable/hud_letter_cavnas_neutral"
+        android:background="@drawable/hud_letter_canvas_neutral"
         android:elevation="1dp"
         android:fontFamily="@font/grobold"
         android:padding="1dp"
-        android:text="L"
+        android:text="@string/letter_l"
         android:textColor="#FFD2D2"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -227,7 +235,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/kButton"
         app:layout_constraintTop_toBottomOf="@+id/oButton"
-        app:layout_constraintVertical_bias="0.081" />
+        app:layout_constraintVertical_bias="0.081"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/aButton"
@@ -235,11 +244,11 @@
         android:layout_height="45dp"
         android:layout_marginStart="-350dp"
         android:layout_marginBottom="-200dp"
-        android:background="@drawable/hud_letter_cavnas_neutral"
+        android:background="@drawable/hud_letter_canvas_neutral"
         android:elevation="1dp"
         android:fontFamily="@font/grobold"
         android:padding="1dp"
-        android:text="A"
+        android:text="@string/letter_a"
         android:textColor="#FFD2D2"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -247,18 +256,19 @@
         app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/qButton"
-        app:layout_constraintVertical_bias="0.081" />
+        app:layout_constraintVertical_bias="0.081"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/gButton"
         android:layout_width="38dp"
         android:layout_height="45dp"
         android:layout_marginBottom="-200dp"
-        android:background="@drawable/hud_letter_cavnas_neutral"
+        android:background="@drawable/hud_letter_canvas_neutral"
         android:elevation="1dp"
         android:fontFamily="@font/grobold"
         android:padding="1dp"
-        android:text="G"
+        android:text="@string/letter_g"
         android:textColor="#FFD2D2"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -266,18 +276,19 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/fButton"
         app:layout_constraintTop_toBottomOf="@+id/tButton"
-        app:layout_constraintVertical_bias="0.081" />
+        app:layout_constraintVertical_bias="0.081"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/fButton"
         android:layout_width="38dp"
         android:layout_height="45dp"
         android:layout_marginBottom="-200dp"
-        android:background="@drawable/hud_letter_cavnas_neutral"
+        android:background="@drawable/hud_letter_canvas_neutral"
         android:elevation="1dp"
         android:fontFamily="@font/grobold"
         android:padding="1dp"
-        android:text="F"
+        android:text="@string/letter_f"
         android:textColor="#FFD2D2"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -285,18 +296,19 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/dButton"
         app:layout_constraintTop_toBottomOf="@+id/rButton"
-        app:layout_constraintVertical_bias="0.081" />
+        app:layout_constraintVertical_bias="0.081"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/kButton"
         android:layout_width="38dp"
         android:layout_height="45dp"
         android:layout_marginBottom="-200dp"
-        android:background="@drawable/hud_letter_cavnas_neutral"
+        android:background="@drawable/hud_letter_canvas_neutral"
         android:elevation="1dp"
         android:fontFamily="@font/grobold"
         android:padding="1dp"
-        android:text="K"
+        android:text="@string/letter_k"
         android:textColor="#FFD2D2"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -304,18 +316,19 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/jButton"
         app:layout_constraintTop_toBottomOf="@+id/iButton"
-        app:layout_constraintVertical_bias="0.081" />
+        app:layout_constraintVertical_bias="0.081"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/hButton"
         android:layout_width="38dp"
         android:layout_height="45dp"
         android:layout_marginBottom="-200dp"
-        android:background="@drawable/hud_letter_cavnas_neutral"
+        android:background="@drawable/hud_letter_canvas_neutral"
         android:elevation="1dp"
         android:fontFamily="@font/grobold"
         android:padding="1dp"
-        android:text="H"
+        android:text="@string/letter_h"
         android:textColor="#FFD2D2"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -323,18 +336,19 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/gButton"
         app:layout_constraintTop_toBottomOf="@+id/yButton"
-        app:layout_constraintVertical_bias="0.081" />
+        app:layout_constraintVertical_bias="0.081"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/jButton"
         android:layout_width="38dp"
         android:layout_height="45dp"
         android:layout_marginBottom="-200dp"
-        android:background="@drawable/hud_letter_cavnas_neutral"
+        android:background="@drawable/hud_letter_canvas_neutral"
         android:elevation="1dp"
         android:fontFamily="@font/grobold"
         android:padding="1dp"
-        android:text="J"
+        android:text="@string/letter_j"
         android:textColor="#FFD2D2"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -342,18 +356,19 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/hButton"
         app:layout_constraintTop_toBottomOf="@+id/uButton"
-        app:layout_constraintVertical_bias="0.081" />
+        app:layout_constraintVertical_bias="0.081"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/dButton"
         android:layout_width="38dp"
         android:layout_height="45dp"
         android:layout_marginBottom="-200dp"
-        android:background="@drawable/hud_letter_cavnas_neutral"
+        android:background="@drawable/hud_letter_canvas_neutral"
         android:elevation="1dp"
         android:fontFamily="@font/grobold"
         android:padding="1dp"
-        android:text="D"
+        android:text="@string/letter_d"
         android:textColor="#FFD2D2"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -361,18 +376,19 @@
         app:layout_constraintHorizontal_bias="0.003"
         app:layout_constraintStart_toEndOf="@+id/sButton"
         app:layout_constraintTop_toBottomOf="@+id/eButton"
-        app:layout_constraintVertical_bias="0.081" />
+        app:layout_constraintVertical_bias="0.081"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/uButton"
         android:layout_width="38dp"
         android:layout_height="45dp"
         android:layout_marginBottom="-200dp"
-        android:background="@drawable/hud_letter_cavnas_neutral"
+        android:background="@drawable/hud_letter_canvas_neutral"
         android:elevation="1dp"
         android:fontFamily="@font/grobold"
         android:padding="1dp"
-        android:text="U"
+        android:text="@string/letter_u"
         android:textColor="#FFD2D2"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -380,18 +396,19 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/yButton"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.553" />
+        app:layout_constraintVertical_bias="0.553"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/iButton"
         android:layout_width="38dp"
         android:layout_height="45dp"
         android:layout_marginBottom="-200dp"
-        android:background="@drawable/hud_letter_cavnas_neutral"
+        android:background="@drawable/hud_letter_canvas_neutral"
         android:elevation="1dp"
         android:fontFamily="@font/grobold"
         android:padding="1dp"
-        android:text="I"
+        android:text="@string/letter_i"
         android:textColor="#FFD2D2"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -399,18 +416,19 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/uButton"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.553" />
+        app:layout_constraintVertical_bias="0.553"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/oButton"
         android:layout_width="38dp"
         android:layout_height="45dp"
         android:layout_marginBottom="-200dp"
-        android:background="@drawable/hud_letter_cavnas_neutral"
+        android:background="@drawable/hud_letter_canvas_neutral"
         android:elevation="1dp"
         android:fontFamily="@font/grobold"
         android:padding="1dp"
-        android:text="O"
+        android:text="@string/letter_o"
         android:textColor="#FFD2D2"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -418,18 +436,19 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/iButton"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.553" />
+        app:layout_constraintVertical_bias="0.553"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/pButton"
         android:layout_width="38dp"
         android:layout_height="45dp"
         android:layout_marginBottom="-200dp"
-        android:background="@drawable/hud_letter_cavnas_neutral"
+        android:background="@drawable/hud_letter_canvas_neutral"
         android:elevation="1dp"
         android:fontFamily="@font/grobold"
         android:padding="1dp"
-        android:text="P"
+        android:text="@string/letter_p"
         android:textColor="#FFD2D2"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -437,18 +456,19 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/oButton"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.552" />
+        app:layout_constraintVertical_bias="0.552"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/rButton"
         android:layout_width="38dp"
         android:layout_height="45dp"
         android:layout_marginBottom="-200dp"
-        android:background="@drawable/hud_letter_cavnas_neutral"
+        android:background="@drawable/hud_letter_canvas_neutral"
         android:elevation="1dp"
         android:fontFamily="@font/grobold"
         android:padding="1dp"
-        android:text="R"
+        android:text="@string/letter_r"
         android:textColor="#FFD2D2"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -456,18 +476,19 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/eButton"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.553" />
+        app:layout_constraintVertical_bias="0.553"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/tButton"
         android:layout_width="38dp"
         android:layout_height="45dp"
         android:layout_marginBottom="-200dp"
-        android:background="@drawable/hud_letter_cavnas_neutral"
+        android:background="@drawable/hud_letter_canvas_neutral"
         android:elevation="1dp"
         android:fontFamily="@font/grobold"
         android:padding="1dp"
-        android:text="T"
+        android:text="@string/letter_t"
         android:textColor="#FFD2D2"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -475,18 +496,19 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/rButton"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.553" />
+        app:layout_constraintVertical_bias="0.553"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/eButton"
         android:layout_width="38dp"
         android:layout_height="45dp"
         android:layout_marginBottom="-200dp"
-        android:background="@drawable/hud_letter_cavnas_neutral"
+        android:background="@drawable/hud_letter_canvas_neutral"
         android:elevation="1dp"
         android:fontFamily="@font/grobold"
         android:padding="1dp"
-        android:text="E"
+        android:text="@string/letter_e"
         android:textColor="#FFD2D2"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -494,18 +516,19 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/wButton"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.553" />
+        app:layout_constraintVertical_bias="0.553"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/yButton"
         android:layout_width="38dp"
         android:layout_height="45dp"
         android:layout_marginBottom="-200dp"
-        android:background="@drawable/hud_letter_cavnas_neutral"
+        android:background="@drawable/hud_letter_canvas_neutral"
         android:elevation="1dp"
         android:fontFamily="@font/grobold"
         android:padding="1dp"
-        android:text="Y"
+        android:text="@string/letter_y"
         android:textColor="#FFD2D2"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -513,18 +536,19 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/tButton"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.553" />
+        app:layout_constraintVertical_bias="0.553"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/wButton"
         android:layout_width="38dp"
         android:layout_height="45dp"
         android:layout_marginBottom="-200dp"
-        android:background="@drawable/hud_letter_cavnas_neutral"
+        android:background="@drawable/hud_letter_canvas_neutral"
         android:elevation="1dp"
         android:fontFamily="@font/grobold"
         android:padding="1dp"
-        android:text="W"
+        android:text="@string/letter_w"
         android:textColor="#FFD2D2"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -532,18 +556,19 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/qButton"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.553" />
+        app:layout_constraintVertical_bias="0.553"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/xButton"
         android:layout_width="38dp"
         android:layout_height="45dp"
         android:layout_marginBottom="-200dp"
-        android:background="@drawable/hud_letter_cavnas_neutral"
+        android:background="@drawable/hud_letter_canvas_neutral"
         android:elevation="1dp"
         android:fontFamily="@font/grobold"
         android:padding="1dp"
-        android:text="X"
+        android:text="@string/letter_x"
         android:textColor="#FFD2D2"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -551,7 +576,8 @@
         app:layout_constraintHorizontal_bias="0.003"
         app:layout_constraintStart_toEndOf="@+id/zButton"
         app:layout_constraintTop_toBottomOf="@+id/dButton"
-        app:layout_constraintVertical_bias="0.072" />
+        app:layout_constraintVertical_bias="0.072"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <ImageButton
         android:id="@+id/hudRetryButton"
@@ -600,7 +626,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/grobold"
-        android:textColor="#FCE4EC"
+        android:textColor="#FFD2D2"
         android:textSize="28sp"
         app:layout_constraintBottom_toTopOf="@+id/tButton"
         app:layout_constraintEnd_toEndOf="parent"
@@ -616,7 +642,7 @@
         android:background="@drawable/score_name_canvas"
         android:fontFamily="@font/grobold"
         android:gravity="center"
-        android:text="00:00:00"
+        android:text="@string/Timer_00_00_00"
         app:layout_constraintBottom_toTopOf="@+id/hudFace"
         app:layout_constraintEnd_toStartOf="@+id/hudHouseButton"
         app:layout_constraintHorizontal_bias="0.437"
@@ -743,7 +769,6 @@
         android:layout_marginBottom="30dp"
         android:elevation="3sp"
         android:fontFamily="@font/grobold"
-        android:text="48176"
         android:textSize="50sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/youWinScoreCanvas"
@@ -928,7 +953,6 @@
         android:layout_marginBottom="30dp"
         android:elevation="3sp"
         android:fontFamily="@font/grobold"
-        android:text="48176"
         android:textSize="50sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/youLoseScoreCanvas"

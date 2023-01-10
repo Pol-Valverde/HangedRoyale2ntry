@@ -10,17 +10,20 @@
         android:id="@+id/SplashScreenBackground"
         android:layout_width="521dp"
         android:layout_height="995dp"
+        android:contentDescription="@string/content_desc_splash_screen_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/splash_screen_background" />
+        app:srcCompat="@drawable/splash_screen_background"
+        tools:ignore="ImageContrastCheck" />
 
     <ImageView
         android:id="@+id/SplashScreenSphere1"
         android:layout_width="515dp"
         android:layout_height="531dp"
         android:layout_marginBottom="488dp"
+        android:contentDescription="@string/content_desc_splash_screen_sphere_1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.721"
@@ -33,19 +36,23 @@
         android:layout_height="399dp"
         android:layout_marginTop="564dp"
         android:layout_marginEnd="176dp"
+        android:contentDescription="@string/content_desc_splash_screen_sphere_2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/splash_screen_shpere1" />
+        app:srcCompat="@drawable/splash_screen_shpere1"
+        tools:ignore="ImageContrastCheck" />
 
     <ImageView
         android:id="@+id/SplashScreenSphere3"
         android:layout_width="390dp"
         android:layout_height="420dp"
         android:layout_marginStart="172dp"
+        android:contentDescription="@string/content_desc_splash_screen_sphere_3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/splash_screen_shpere3" />
+        app:srcCompat="@drawable/splash_screen_shpere3"
+        tools:ignore="ImageContrastCheck" />
 
     <TextView
         android:id="@+id/textView"
@@ -53,25 +60,28 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="-80dp"
         android:fontFamily="@font/grobold"
-        android:text="Hanged Royale"
+        android:text="@string/main_text_hanged_royale"
         android:textColor="#F9E373"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck" />
 
     <ImageView
         android:id="@+id/SplashScreenFace"
         android:layout_width="284dp"
         android:layout_height="299dp"
         android:layout_marginBottom="44dp"
+        android:contentDescription="@string/content_desc_splash_screen_face"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.614"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/splash_screen_face1" />
+        app:srcCompat="@drawable/splash_screen_face1"
+        tools:ignore="ImageContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -465,6 +465,7 @@ class GameActivity : AppCompatActivity() {
                 })
             } else {
                 Toast.makeText(this, ("Can't load Ad"), Toast.LENGTH_SHORT).show()
+                playMusic(R.raw.main_game_music, true)
             }
         }
     }

@@ -42,7 +42,7 @@ class GameActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGameBinding
     private val firebaseAnalytics = Firebase.analytics
     private lateinit var database: DatabaseReference
-    var hangManWord: String = ""
+    var hangManWord: String = "______"
     var currentWord: String = ""
     var token: String = ""
     var boolLetter: Boolean = false
@@ -297,8 +297,7 @@ class GameActivity : AppCompatActivity() {
             finish()
         }
 
-        hangManWord = nextWord().toString()
-        binding.wordGame.text = hangManWord
+        nextWord()
 
         binding.qButton.setOnClickListener{
             checkLetterButton("Q")
@@ -454,6 +453,7 @@ class GameActivity : AppCompatActivity() {
                 val hangManResult = response.body()
                 hangManWord = hangManResult?.hangman ?: ""
                 token = hangManResult?.token?:""
+                binding.wordGame.text = hangManWord
                 print(hangManWord);
             }
             override fun onFailure(call: Call<ApiHangManGame>, t: Throwable) {
@@ -557,10 +557,6 @@ class GameActivity : AppCompatActivity() {
         {
             showLose()
         }
-        if(finishedWord)
-        {
-            showWin()
-        }
 
         val outside = Retrofit.Builder().baseUrl(urlApi).addConverterFactory(GsonConverterFactory.create()).build()
         val services = outside.create(HangManInterface::class.java)
@@ -592,7 +588,7 @@ class GameActivity : AppCompatActivity() {
 
                 if(!checkWordFinished(currentWord))
                 {
-                    finishedWord = true
+                    showWin()
                     points+=50
                     //CALL REALTIME
                 }

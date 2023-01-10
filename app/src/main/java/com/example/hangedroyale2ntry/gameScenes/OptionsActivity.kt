@@ -27,7 +27,8 @@ class OptionsActivity : AppCompatActivity() {
     var puntuation:Int = 0
     var userConfig: UserConfig = UserConfig(userEmail.toString(), soundActivated, notificationActivated,puntuation)
     var users = arrayListOf<UserConfig>()
-    var musicMediaPlayer: MediaPlayer? = null
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -87,6 +88,7 @@ class OptionsActivity : AppCompatActivity() {
             updateFireStore()
         }
         binding.optionsLogOutButton.setOnClickListener{
+            stopMusic()
             val editor = sharedPreference.edit()
             editor.remove("username")
             editor.remove("password")
@@ -94,8 +96,8 @@ class OptionsActivity : AppCompatActivity() {
             editor.clear().apply()
 
             val intent = Intent(this@OptionsActivity, MainActivity::class.java)
-            startActivity(intent)
             finish()
+            startActivity(intent)
         }
 
         binding.optionsNotificationSwitch.setOnClickListener {
@@ -122,5 +124,13 @@ class OptionsActivity : AppCompatActivity() {
     fun isUserCurrentUser(user: UserConfig): Boolean
     {
         return user.email == userEmail
+    }
+
+    fun stopMusic() {
+        if (MainMenuActivity.musicMediaPlayer != null) {
+            MainMenuActivity.musicMediaPlayer!!.stop()
+            MainMenuActivity.musicMediaPlayer!!.release()
+            MainMenuActivity.musicMediaPlayer = null
+        }
     }
 }

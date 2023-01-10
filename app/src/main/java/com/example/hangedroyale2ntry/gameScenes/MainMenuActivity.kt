@@ -34,8 +34,9 @@ class MainMenuActivity : AppCompatActivity()
     private lateinit var binding: ActivityMainMenuBinding
     private lateinit var mAdView : AdView
 
-    var musicMediaPlayer: MediaPlayer? = null
-
+    companion object{
+        var musicMediaPlayer: MediaPlayer? = null
+    }
 
     private val CHANNEL_ID = "channel_id_example_01"
     private val notificationId = 101
@@ -71,7 +72,6 @@ class MainMenuActivity : AppCompatActivity()
         binding.menuExitButton.setOnClickListener{
             stopMusic()
             finish()
-            //exitProcess(0)
         }
 
         binding.menuOptionsButton.setOnClickListener{
@@ -83,6 +83,7 @@ class MainMenuActivity : AppCompatActivity()
             val intent = Intent(this@MainMenuActivity, LeaderBoardActivity::class.java)
             startActivity(intent)
             stopMusic()
+            finish()
         }
     }
     private fun fireBaseNotification()

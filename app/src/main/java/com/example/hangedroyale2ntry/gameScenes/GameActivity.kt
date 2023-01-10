@@ -407,6 +407,7 @@ class GameActivity : AppCompatActivity() {
 
         binding.AdButton.setOnClickListener { // Logic to show ad:
             playSound(R.raw.go_forward, false)
+            stopMusic()
 
             if(mRewardedAd!=null)
             {
@@ -417,7 +418,7 @@ class GameActivity : AppCompatActivity() {
                         var rewardType = rewardItem.type
                         Toast.makeText(this, ("Can load Ad"), Toast.LENGTH_SHORT).show()
                     }
-                    Toast.makeText(this, ("On SuccedVideo"), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, ("On SucceedVideo"), Toast.LENGTH_SHORT).show()
                     lives = 5
                     faceAlpha = 0
                     binding.hudFace.setColorFilter(Color.argb(faceAlpha, 214, 25, 25))
@@ -433,7 +434,34 @@ class GameActivity : AppCompatActivity() {
                     binding.youLoseReloadButton.isVisible = false
                     binding.youLoseScoreText.isVisible = false
                     binding.AdButton.isVisible = false
+                    binding.qButton.isClickable = true
+                    binding.wButton.isClickable = true
+                    binding.eButton.isClickable = true
+                    binding.rButton.isClickable = true
+                    binding.tButton.isClickable = true
+                    binding.yButton.isClickable = true
+                    binding.uButton.isClickable = true
+                    binding.iButton.isClickable = true
+                    binding.oButton.isClickable = true
+                    binding.pButton.isClickable = true
+                    binding.aButton.isClickable = true
+                    binding.sButton.isClickable = true
+                    binding.dButton.isClickable = true
+                    binding.fButton.isClickable = true
+                    binding.gButton.isClickable = true
+                    binding.hButton.isClickable = true
+                    binding.jButton.isClickable = true
+                    binding.kButton.isClickable = true
+                    binding.lButton.isClickable = true
+                    binding.zButton.isClickable = true
+                    binding.xButton.isClickable = true
+                    binding.cButton.isClickable = true
+                    binding.vButton.isClickable = true
+                    binding.bButton.isClickable = true
+                    binding.nButton.isClickable = true
+                    binding.mButton.isClickable = true
                     boolAd = true
+                    playMusic(R.raw.main_game_music, true)
                     firebaseAnalytics.logEvent("new_chance"){
                         param("boolAd","true")
                     }
@@ -518,37 +546,34 @@ class GameActivity : AppCompatActivity() {
         binding.youLoseLeaderboardButton.isVisible = true
         binding.youLoseReloadButton.isVisible = true
         binding.youLoseScoreText.isVisible = true
+        binding.qButton.isClickable = false
+        binding.wButton.isClickable = false
+        binding.eButton.isClickable = false
+        binding.rButton.isClickable = false
+        binding.tButton.isClickable = false
+        binding.yButton.isClickable = false
+        binding.uButton.isClickable = false
+        binding.iButton.isClickable = false
+        binding.oButton.isClickable = false
+        binding.pButton.isClickable = false
+        binding.aButton.isClickable = false
+        binding.sButton.isClickable = false
+        binding.dButton.isClickable = false
+        binding.fButton.isClickable = false
+        binding.gButton.isClickable = false
+        binding.hButton.isClickable = false
+        binding.jButton.isClickable = false
+        binding.kButton.isClickable = false
+        binding.lButton.isClickable = false
+        binding.zButton.isClickable = false
+        binding.xButton.isClickable = false
+        binding.cButton.isClickable = false
+        binding.vButton.isClickable = false
+        binding.bButton.isClickable = false
+        binding.nButton.isClickable = false
+        binding.mButton.isClickable = false
         if(boolAd == false)
             binding.AdButton.isVisible = true
-        else
-        {
-            binding.qButton.isClickable = false
-            binding.wButton.isClickable = false
-            binding.eButton.isClickable = false
-            binding.rButton.isClickable = false
-            binding.tButton.isClickable = false
-            binding.yButton.isClickable = false
-            binding.uButton.isClickable = false
-            binding.iButton.isClickable = false
-            binding.oButton.isClickable = false
-            binding.pButton.isClickable = false
-            binding.aButton.isClickable = false
-            binding.sButton.isClickable = false
-            binding.dButton.isClickable = false
-            binding.fButton.isClickable = false
-            binding.gButton.isClickable = false
-            binding.hButton.isClickable = false
-            binding.jButton.isClickable = false
-            binding.kButton.isClickable = false
-            binding.lButton.isClickable = false
-            binding.zButton.isClickable = false
-            binding.xButton.isClickable = false
-            binding.cButton.isClickable = false
-            binding.vButton.isClickable = false
-            binding.bButton.isClickable = false
-            binding.nButton.isClickable = false
-            binding.mButton.isClickable = false
-        }
     }
 
     fun checkLetterButton(letter:String)
@@ -684,9 +709,9 @@ class GameActivity : AppCompatActivity() {
 
     fun stopMusic() {
         if (musicMediaPlayer != null) {
-            musicMediaPlayer!!.stop();
-            musicMediaPlayer!!.release();
-            musicMediaPlayer = null;
+            musicMediaPlayer!!.stop()
+            musicMediaPlayer!!.release()
+            musicMediaPlayer = null
         }
     }
 }

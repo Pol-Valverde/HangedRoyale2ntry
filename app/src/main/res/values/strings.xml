@@ -1,3 +1,52 @@
 <resources>
     <string name="app_name">Hanged Royale 2nTry</string>
+
+    <string name="content_desc_pause_button">pauseButton</string>
+    <string name="content_desc_house_button">homeButton</string>
+    <string name="content_desc_ad_button">adButton</string>
+
+    <string name="content_desc_hud_face_damage">hudFaceDamage</string>
+    <string name="content_desc_unpause_button">unpauseButton</string>
+    <string name="content_desc_canvas_word">canvasWord</string>
+    <string name="content_desc_hud_retry_button">hudRetryButton</string>
+    <string name="content_desc_grey_background">greyBackground</string>
+    <string name="content_desc_hud_sphere_1">hudSphere1</string>
+    <string name="content_desc_hud_sphere_2">hudSphere2</string>
+    <string name="content_desc_hud_sphere_3">hudSphere3</string>
+
+
+    <string name="content_desc_you_win_face">youWinFace</string>
+    <string name="content_desc_you_win_leaderboard_button">youWinLeaderboardButton</string>
+    <string name="content_desc_you_win_home_button">youWinHomeButton</string>
+    <string name="content_desc_you_win_reload_button">youWinReloadButton</string>
+    <string name="content_desc_you_win_background">youWinBackground</string>
+    <string name="content_desc_you_win_sphere_1">youWinSphere1</string>
+    <string name="content_desc_you_win_sphere_2">youWinSphere2</string>
+    <string name="content_desc_you_win_sphere_3">youWinSphere3</string>
+
+    <string name="content_desc_you_lose_face">youLoseFace</string>
+    <string name="content_desc_you_lose_leaderboard_button">youLoseLeaderboardButton</string>
+    <string name="content_desc_you_lose_home_button">youLoseHomeButton</string>
+    <string name="content_desc_you_lose_reload_button">youLoseReloadButton</string>
+    <string name="content_desc_you_lose_background">youLoseBackground</string>
+    <string name="content_desc_you_lose_sphere_1">youLoseSphere1</string>
+    <string name="content_desc_you_lose_sphere_2">youLoseSphere2</string>
+    <string name="content_desc_you_lose_sphere_3">youLoseSphere3</string>
+
+    <string name="content_desc_main_screen_sphere_1">mainScreenSphere1</string>
+    <string name="content_desc_main_screen_sphere_2">mainScreenSphere2</string>
+    <string name="content_desc_main_screen_sphere_3">mainScreenSphere3</string>
+    <string name="content_desc_main_screen_canvas_username">mainScreenCanvasUsername</string>
+    <string name="content_desc_main_screen_canvas_password">mainScreenCanvasPassword</string>
+    <string name="content_desc_main_screen_face">mainScreenFace</string>
+
+    <string name="text_create_your_account">Create your account!</string>
+    <string name="text_paused">PAUSED</string>
+    <string name="text_score_label">Score:</string>
+    <string name="text_you_lose">You Lose!</string>
+    <string name="text_you_win">You Win!</string>
+    <string name="text_hint_e_mail">E-mail</string>
+    <string name="text_hint_password">Password</string>
+    <string name="content_desc_next_button">Next</string>
+    <string name="text_next">NEXT</string>
 </resources>

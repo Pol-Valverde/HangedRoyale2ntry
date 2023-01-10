@@ -46,7 +46,7 @@ class GameActivity : AppCompatActivity() {
     var currentWord: String = ""
     var token: String = ""
     var boolLetter: Boolean = false
-    var lives: Int = 50
+    var lives: Int = 7
     var faceAlpha: Int = 0
     var finishedWord: Boolean = false
     val urlApi = "http://hangman.enti.cat:5002/new/"

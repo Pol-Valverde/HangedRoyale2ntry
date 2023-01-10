@@ -96,9 +96,6 @@ class MainMenuActivity : AppCompatActivity()
 
             val token = task.result
             println(token)
-
-            val msg = "Somethimg"
-            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
         })
     }
 

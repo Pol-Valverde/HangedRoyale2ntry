@@ -79,7 +79,6 @@ class GameActivity : AppCompatActivity() {
 
         database = Firebase.database("https://hangedroyale2ntry-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Users") // collection name
 
-        Toast.makeText(this, userID, Toast.LENGTH_SHORT).show()
         MobileAds.initialize(this){}
         var adRequest = AdRequest.Builder().build()
 
@@ -416,9 +415,7 @@ class GameActivity : AppCompatActivity() {
 
                         var rewardAmount = rewardItem.amount
                         var rewardType = rewardItem.type
-                        Toast.makeText(this, ("Can load Ad"), Toast.LENGTH_SHORT).show()
                     }
-                    Toast.makeText(this, ("On SucceedVideo"), Toast.LENGTH_SHORT).show()
                     lives = 5
                     faceAlpha = 0
                     binding.hudFace.setColorFilter(Color.argb(faceAlpha, 214, 25, 25))

@@ -1,6 +1,7 @@
 package com.example.hangedroyale2ntry.gameScenes
 
 import android.content.Intent
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.preference.PreferenceManager
@@ -14,16 +15,20 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+import com.example.hangedroyale2ntry.R
 
 class LeaderBoardActivity : AppCompatActivity()
 {
     private lateinit var binding: ActivityLeaderBoardBinding
     private var adapter = LeaderBoardRecycleViewAdapter()
     private lateinit var database: DatabaseReference
+    var musicMediaPlayer: MediaPlayer? = null
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
+
+        playMusic(R.raw.main_leaderboard_music, true)
 
         binding = ActivityLeaderBoardBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -36,7 +41,7 @@ class LeaderBoardActivity : AppCompatActivity()
         binding.scoreHomeButton.setOnClickListener {
             val intent = Intent(this@LeaderBoardActivity, MainMenuActivity::class.java)
             startActivity(intent)
-
+            stopMusic()
             finish()
         }
 
@@ -93,5 +98,23 @@ class LeaderBoardActivity : AppCompatActivity()
         }
 
         adapter.updateList(sortedList)
+    }
+
+    fun playMusic(soundName: Int, loop: Boolean)
+    {
+        if (musicMediaPlayer == null)
+        {
+            musicMediaPlayer = MediaPlayer.create(this, soundName)
+            musicMediaPlayer!!.isLooping = loop
+            musicMediaPlayer!!.start()
+        }
+    }
+
+    fun stopMusic() {
+        if (musicMediaPlayer != null) {
+            musicMediaPlayer!!.stop();
+            musicMediaPlayer!!.release();
+            musicMediaPlayer = null;
+        }
     }
 }

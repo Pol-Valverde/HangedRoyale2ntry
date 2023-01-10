@@ -2,10 +2,12 @@ package com.example.hangedroyale2ntry.gameScenes
 
 import android.content.Intent
 import android.content.SharedPreferences
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.preference.PreferenceManager
 import android.util.Patterns
+import com.example.hangedroyale2ntry.R
 import com.example.hangedroyale2ntry.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -23,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-
+        //playSound(R.raw.main_game_music, true)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         firebaseAuth = FirebaseAuth.getInstance()

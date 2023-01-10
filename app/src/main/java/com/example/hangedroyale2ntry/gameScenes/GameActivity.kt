@@ -58,6 +58,7 @@ class GameActivity : AppCompatActivity() {
     private var mRewardedAd: RewardedAd? = null
     private final var TAG = "MainMenuActivity"
     var mMediaPlayer: MediaPlayer? = null
+    var musicMediaPlayer: MediaPlayer? = null
     var paused: Boolean = false
     var points: Int = 0
 
@@ -67,7 +68,7 @@ class GameActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
-
+        playMusic(R.raw.main_game_music, true)
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -216,6 +217,7 @@ class GameActivity : AppCompatActivity() {
         }
 
         binding.hudRetryButton.setOnClickListener {
+            stopMusic()
             playSound(R.raw.go_forward, false)
             resetTimer()
             val intent = Intent(this@GameActivity, GameActivity::class.java)
@@ -224,6 +226,7 @@ class GameActivity : AppCompatActivity() {
         }
 
         binding.hudHouseButton.setOnClickListener{
+            stopMusic()
             playSound(R.raw.go_back, false)
             resetTimer()
             val intent = Intent(this@GameActivity, MainMenuActivity::class.java)
@@ -232,6 +235,7 @@ class GameActivity : AppCompatActivity() {
         }
 
         binding.youWinReloadButton.setOnClickListener {
+            stopMusic()
             playSound(R.raw.go_forward, false)
             resetTimer()
             val intent = Intent(this@GameActivity, GameActivity::class.java)
@@ -240,6 +244,7 @@ class GameActivity : AppCompatActivity() {
         }
 
         binding.youWinHomeButton.setOnClickListener {
+            stopMusic()
             playSound(R.raw.go_back, false)
             resetTimer()
             val intent = Intent(this@GameActivity, MainMenuActivity::class.java)
@@ -248,6 +253,7 @@ class GameActivity : AppCompatActivity() {
         }
 
         binding.youWinLeaderboardButton.setOnClickListener {
+            stopMusic()
             playSound(R.raw.go_forward, false)
             resetTimer()
             val intent = Intent(this@GameActivity, LeaderBoardActivity::class.java)
@@ -256,6 +262,7 @@ class GameActivity : AppCompatActivity() {
         }
 
         binding.youLoseReloadButton.setOnClickListener {
+            stopMusic()
             playSound(R.raw.go_forward, false)
             firebaseAnalytics.logEvent("new_chance"){
                 param("boolAd","false")
@@ -267,6 +274,7 @@ class GameActivity : AppCompatActivity() {
         }
 
         binding.youLoseHomeButton.setOnClickListener {
+            stopMusic()
             playSound(R.raw.go_back, false)
             resetTimer()
             firebaseAnalytics.logEvent("new_chance"){
@@ -278,6 +286,7 @@ class GameActivity : AppCompatActivity() {
         }
 
         binding.youLoseLeaderboardButton.setOnClickListener {
+            stopMusic()
             playSound(R.raw.go_forward, false)
             resetTimer()
             firebaseAnalytics.logEvent("new_chance"){
@@ -662,5 +671,26 @@ class GameActivity : AppCompatActivity() {
             mMediaPlayer!!.start()
         }
         else mMediaPlayer!!.start()
+    }
+
+    fun playMusic(soundName: Int, loop: Boolean)
+    {
+        musicMediaPlayer = null
+
+        if (musicMediaPlayer == null)
+        {
+            musicMediaPlayer = MediaPlayer.create(this, soundName)
+            musicMediaPlayer!!.isLooping = loop
+            musicMediaPlayer!!.start()
+        }
+        else musicMediaPlayer!!.start()
+    }
+
+    fun stopMusic() {
+        if (musicMediaPlayer != null) {
+            musicMediaPlayer!!.stop();
+            musicMediaPlayer!!.release();
+            musicMediaPlayer = null;
+        }
     }
 }

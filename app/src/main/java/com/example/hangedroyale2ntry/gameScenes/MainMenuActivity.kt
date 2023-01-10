@@ -4,6 +4,7 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -24,6 +25,7 @@ import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
+import kotlin.system.exitProcess
 
 
 class MainMenuActivity : AppCompatActivity()
@@ -32,6 +34,8 @@ class MainMenuActivity : AppCompatActivity()
     private lateinit var binding: ActivityMainMenuBinding
     private lateinit var mAdView : AdView
 
+    var musicMediaPlayer: MediaPlayer? = null
+
 
     private val CHANNEL_ID = "channel_id_example_01"
     private val notificationId = 101
@@ -39,7 +43,7 @@ class MainMenuActivity : AppCompatActivity()
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
-
+        playMusic(R.raw.main_menu_music, true)
         binding = ActivityMainMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -58,28 +62,27 @@ class MainMenuActivity : AppCompatActivity()
         binding.menuPlayButton.setOnClickListener{
             // Analytics:
             firebaseAnalytics.logEvent("StartPlaying",null)
-
-
-
             val intent = Intent(this@MainMenuActivity, GameActivity::class.java)
+            stopMusic()
             startActivity(intent)
             finish()
         }
 
         binding.menuExitButton.setOnClickListener{
+            stopMusic()
             finish()
+            //exitProcess(0)
         }
 
         binding.menuOptionsButton.setOnClickListener{
             val intent = Intent(this@MainMenuActivity, OptionsActivity::class.java)
             startActivity(intent)
-            //finish()
         }
 
         binding.menuLeadBoardButton.setOnClickListener {
             val intent = Intent(this@MainMenuActivity, LeaderBoardActivity::class.java)
             startActivity(intent)
-            //finish()
+            stopMusic()
         }
     }
     private fun fireBaseNotification()
@@ -124,6 +127,24 @@ class MainMenuActivity : AppCompatActivity()
 
         with(NotificationManagerCompat.from(this)){
             notify(notificationId,builder.build())
+        }
+    }
+
+    fun playMusic(soundName: Int, loop: Boolean)
+    {
+        if (musicMediaPlayer == null)
+        {
+            musicMediaPlayer = MediaPlayer.create(this, soundName)
+            musicMediaPlayer!!.isLooping = loop
+            musicMediaPlayer!!.start()
+        }
+    }
+
+    fun stopMusic() {
+        if (musicMediaPlayer != null) {
+            musicMediaPlayer!!.stop();
+            musicMediaPlayer!!.release();
+            musicMediaPlayer = null;
         }
     }
 }
